@@ -1,0 +1,35 @@
+#Contenedor {
+    border:greenyellow solid 2px;
+    margin: 50px;
+    padding: 10px;
+}
+#fecha{
+    margin-bottom: 10px;
+}
+#selecfecha{
+    margin-bottom: 10px;
+}
+#btn{
+    margin: 7px;
+}
+#diferencia{
+    margin-bottom: 10px;
+}
+#diff{
+    margin-right: 100px;
+}
+.row{
+    display: flex;
+}
+.col {
+    flex-grow: 1;
+}
+#btn {
+    margin-right: auto;
+    margin: 50px;
+}
+
+input{
+    display: block;
+    margin: 5px;
+}

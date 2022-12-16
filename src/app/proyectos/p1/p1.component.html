@@ -1,0 +1,42 @@
+<div class="row">
+
+    <div class="col">
+        <h3>Historial</h3>
+        <hr>
+        <ul>
+            <li *ngFor="let comparativas of Comparativas"  >
+            -->{{comparativas.fecha1}}  <br>
+                 
+            -->{{comparativas.fecha2}} <br>
+
+                 {{comparativas.diff}}
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="col">
+        <h3>Selecionar fechas</h3>
+    
+        <form (ngSubmit)="calcular()" id="Contenedor">
+            <header>Fecha Inicio</header>  
+            <input 
+                type="date" 
+                name="fecha1"
+                [(ngModel)] = "nuevaComparativa.fecha1">
+            <header>Fecha Final</header>  
+            <input 
+                type="date"s
+                name="fcha2"
+                [(ngModel)]="nuevaComparativa.fecha2">
+    
+            <button class="btn btn-primary" type="submit">
+                Calcular
+            </button>
+            
+        </form>
+    
+    </div>
+
+</div>
+

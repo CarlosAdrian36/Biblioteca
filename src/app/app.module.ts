@@ -4,17 +4,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProyectosComponent } from './proyectos/proyectos.component';
+import { PageErrorComponent } from './shared/page-error/page-error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProyectosComponent
+    PageErrorComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

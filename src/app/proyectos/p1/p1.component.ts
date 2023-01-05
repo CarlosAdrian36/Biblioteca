@@ -27,6 +27,13 @@ export class P1Component {
     fecha2: '',
     diff: ''
   }
+
+  datechange(event :any){
+    
+    console.log( event.target.value)
+
+  }
+
 calcular(){
   const fechaInicial = this.nuevaComparativa.fecha1
   const fechaI = moment(fechaInicial)

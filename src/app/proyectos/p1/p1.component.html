@@ -5,14 +5,15 @@
         <hr>
         <ul>
             <li *ngFor="let comparativas of Comparativas"  >
-            -->{{comparativas.fecha1}}  <br>
+            {{comparativas.fecha1}}  <br>
                  
-            -->{{comparativas.fecha2}} <br>
+            {{comparativas.fecha2}} <br>
 
                  {{comparativas.diff}}
             </li>
         </ul>
     </div>
+    
 
 
     <div class="col">
@@ -20,17 +21,26 @@
     
         <form (ngSubmit)="calcular()" id="Contenedor">
             <header>Fecha Inicio</header>  
-            <input 
-                type="date" 
-                name="fecha1"
+            <mat-form-field>
+                <mat-label>Fecha Inicial</mat-label>
+                <input matInput [matDatepicker]="picker3" (dateChange)="datechange( $event)" name="fecha1"
                 [(ngModel)] = "nuevaComparativa.fecha1">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker3" ></mat-datepicker-toggle>
+                <mat-datepicker #picker3></mat-datepicker>
+            </mat-form-field>
             <header>Fecha Final</header>  
-            <input 
-                type="date"s
-                name="fcha2"
-                [(ngModel)]="nuevaComparativa.fecha2">
-    
-            <button class="btn btn-primary" type="submit">
+            <mat-form-field appearance="fill">
+                <mat-label>Fecha Final</mat-label>
+                <input matInput [matDatepicker]="picker4" (dateChange)="datechange( $event)" name="fcha2"
+                [(ngModel)]="nuevaComparativa.fecha2" >
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker4" ></mat-datepicker-toggle>
+                <mat-datepicker #picker4></mat-datepicker>
+            </mat-form-field>
+
+
+            <button mat-raised-button color="primary" type="submit">
                 Calcular
             </button>
             
@@ -39,4 +49,26 @@
     </div>
 
 </div>
+ 
 
+
+
+<!-- <div>
+    <mat-form-field appearance="fill">
+        <mat-label>Fecha Inicial</mat-label>
+        <input matInput [matDatepicker]="picker" (dateChange)="datechange( $event)" >
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker" ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+
+    </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha Inicial</mat-label>
+        <input matInput [matDatepicker]="picker2" (dateChange)="datechange( $event)" >
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker" ></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+
+      </mat-form-field>
+
+</div> -->

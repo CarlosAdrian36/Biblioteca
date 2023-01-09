@@ -8,20 +8,24 @@
                     start
                 </mat-icon>
             </button>
+
+
+
+
         </mat-toolbar>
         <mat-nav-list>
             <a routerLink="./Proyecto1"
                 mat-list-item
                 (click)="sidenav.toggle()">
                 <span>
-                    Comparacion de fechas
+                    Comparacion de Fechas
                 </span>
             </a>
             <a routerLink="./Proyecto2"
                 mat-list-item
                 (click)="sidenav.toggle()">
                 <span>
-                    formato aiken
+                    Formato Aiken
                 </span>
             </a>
         </mat-nav-list>
@@ -36,6 +40,13 @@
             </mat-icon>
         
         </button>
+
+        <button mat-icon-button routerLink="/404" >
+            <mat-icon>
+                home
+            </mat-icon>
+        </button>
+
     </mat-toolbar>
 
     <router-outlet></router-outlet>

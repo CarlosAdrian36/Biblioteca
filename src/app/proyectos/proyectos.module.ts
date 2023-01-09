@@ -19,7 +19,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     ProyectosRoutingModule,
-    MaterialModule
+    MaterialModule,
   ]
 })
 export class ProyectosModule { }

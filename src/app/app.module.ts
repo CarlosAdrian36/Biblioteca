@@ -16,8 +16,9 @@ import { PageErrorComponent } from './shared/page-error/page-error.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    
-    
+  ],
+  exports: [
+    PageErrorComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

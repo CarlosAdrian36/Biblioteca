@@ -1,21 +1,43 @@
-
-
-
-<mat-card class="card">
+<mat-card class="card-content">
     <mat-card-header>
-        <mat-card-title>Subir archivo</mat-card-title>
-        <mat-card-subtitle>Subir en formato aiken</mat-card-subtitle>
+        <mat-card-title>Subir Examen</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-
     </mat-card-content>
-    <mat-card-actions>
-        <input type="file" onchange='previewFile()' >
-    </mat-card-actions>
+
 </mat-card>
 
 
+    <mat-card class="card">
+        <mat-card-header>
+            <mat-card-title>Subir archivo</mat-card-title>
+            <mat-card-subtitle>La idea es subir un documento con formato aiken y que automaticamente te de un formulario para contestar </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            
+        </mat-card-content>
+        <mat-card-actions>
+            <input type="file" (change)="AbrirArchivo($event)"  >
+        </mat-card-actions>
+    </mat-card>
 
-<br>
 
-<p class="content"></p>
+
+
+    <mat-card class="card-content">
+        <mat-card-header>
+            <mat-card-title>Contenido
+                
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+        </mat-card-content>
+        
+    </mat-card>
+    
+
+
+
+
+
+

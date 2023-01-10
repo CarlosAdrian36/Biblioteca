@@ -9,48 +9,29 @@ interface examen{
 @Component({
   selector: 'app-p2',
   templateUrl: './p2.component.html',
-  styles: [
-    `
-    .card {
-      max-width: 400px;
-      margin-top: 20px;
-      margin: 30px;
-      width: 100%;
-      
-    }
-    .card-content{
-      max-width: 400px;
-      margin-top: 20px;
-      margin: 30px;
-      width: 100%;
-      
-    }
-    mat-gird-list{
-      background: 0000;
-    }
-    `
-  ]
+  styleUrls: ['./p2.component.css']
 })
 
 export class P2Component {
   
   @Output() texto = new EventEmitter<string>();
   contenido = '';
+  Pregunta : string[] = [];
+  Respuestas : string[] = [];
+  Respuesta : string[] = [];
+
   
   
   AbrirArchivo(doc : Event){
     const loc =  doc.target
-    // console.log( loc );
     this.leerArchivo( loc )
 
   }
   leerArchivo( value : any ){
     const file : File = value.files[0];
-    // console.log( file )
     const leer = new FileReader();
     leer.onload = () => {
       const contenido = leer.result
-      // console.log( contenido  );
       this.mostrar( contenido );
       this.separar( contenido );
     }
@@ -59,13 +40,34 @@ export class P2Component {
   }
   mostrar( txt: any){
     this.contenido =  txt;
+    
   }
 
   separar( txt : any){
     const mensaje : string = txt;
     const sentencias = mensaje.split(/\r\n|\n/);
-    for( let line = 0; line < sentencias.length - 1; line++){
-      console.log(line + "-->" + sentencias[line])
+    for( let line: number = 0; line < sentencias.length - 1; line++){
+      console.log(line + "-->" + sentencias[line]);
+
+      if( sentencias[line].startsWith('¿')){
+        this.Pregunta.push(sentencias[line])
+      }else if( sentencias[line].startsWith('A.')){
+        this.Respuestas.push(sentencias[line])
+      }else if( sentencias[line].startsWith('B.')){
+        this.Respuestas.push(sentencias[line])
+      }else if( sentencias[line].startsWith('C.')){
+        this.Respuestas.push(sentencias[line])
+      }else if(sentencias[line].startsWith('D.')){
+        this.Respuestas.push(sentencias[line])
+      }else if(sentencias[line].startsWith('ANSWER')){
+        this.Respuesta.push(sentencias[line])
+      }
     }
+    console.log('*******PREGUTNAS*******');
+    console.log(this.Pregunta);
+    console.log('*******RESPUESTAS*******');
+    console.log( this.Respuestas);
+    console.log('*******RESPUESTA*******')
+    console.log(this.Respuesta)
   }
 }

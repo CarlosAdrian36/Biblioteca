@@ -46,42 +46,47 @@ export class P2Component {
     
     // this.construirLista(sentencias)
   }
+  examen : parrafo[] = []
 
   construir( linea: string[] ){
 
     for( let i : number = 0; i < linea.length; i++ ){
-      console.log( i + " --> " + linea[i])
+      // console.log( i + " --> " + linea[i])
 
       if(linea[i] === ""){
         const miParrafo = new parrafo("","",[] );
-        console.log("****************************" + i)
-        let y: number 
+        // console.log("****************************" + i);
+        const arr : Array<string> = [];
+        let y: number;
         for( y = i  ; y>= i - 6; y--  ){
           if( linea[y] === ""){
-            console.log("No hice nada")
+            // console.log("No hice nada");
           }else{
 
             if(linea[y].startsWith('¿')){
-              miParrafo.spregunta = linea[y]
+              miParrafo.spregunta = linea[y];
             }else{
               if(linea[y].startsWith('ANSWER')){
-                const str = linea[y]
-                const newstr = str.slice(8)
-                miParrafo.value = newstr
+                const str = linea[y];
+                const newstr = str.slice(8);
+                miParrafo.value = newstr;
               }else{
-                const arr : Array<string> = []
-
-                 arr.push(linea[i]);
-                console.log(arr)
-
+                const str1 = linea[y];
+                const newstr1 = str1.slice(3);
+                const reverse = arr.push(newstr1)
+                
               }
             }
-
+            
           }
-        
+          
         }
+        miParrafo.respuestas = arr.reverse()
+        // console.log(arr.reverse())
         console.log(miParrafo)
-        console.log( "Fin del for")
+        this.examen.push(miParrafo)
+
+        // console.log( "Fin del for")
         
         
         
@@ -89,7 +94,7 @@ export class P2Component {
       
     }
     
-    
+    console.log(this.examen)
     
   }
 }

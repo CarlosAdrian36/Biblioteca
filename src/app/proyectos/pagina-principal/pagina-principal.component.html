@@ -1,13 +1,13 @@
-<mat-sidenav-container  fullscreen hasBackdrop="false">
-    <mat-sidenav #sidenav mode="push">
+<mat-sidenav-container  class="example-container" hasBackdrop="true" (backdropClick)="close('backdrop')">
+    <mat-sidenav #sidenav mode="push" (keydown.escape)="close('escape')" >
 
         <mat-toolbar>
             <span>Menu</span>
-            <button mat-icon-button (click)="sidenav.toggle()" >
+<!--             <button mat-icon-button (click)="sidenav.toggle()" >
                 <mat-icon>
                     start
                 </mat-icon>
-            </button>
+            </button> -->
 
 
 
@@ -34,7 +34,7 @@
 
     <mat-toolbar>
         
-        <button mat-icon-button (click)="sidenav.toggle()" >
+        <button mat-icon-button (click)="sidenav.open()" >
             <mat-icon>
                 menu
             </mat-icon>

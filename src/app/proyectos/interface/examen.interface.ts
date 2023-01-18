@@ -1,13 +1,43 @@
-export interface examen{
-    pregunta: string,
-    respuestas: Respuestas,
-    respuestaCorrecta: string,
+
+export class parrafo {
+  
+  private _pregunta : string ;
+  private _correcta : string ;
+  private _respuestas : string [];
+  constructor(pregunta : string, correcta : string, respuestas: string[] ){
+    
+    this._pregunta = pregunta
+    this._correcta = correcta
+    this._respuestas = []
   }
 
-export interface Respuestas {
-    r1: string;
-    r2: string;
-    r3: string;
-    r4: string;
+  
+  public set respuestas(v : string) {
+    this.respuestas = v;
+  }
+  
+
+  
+
+  
+  public get value() : string {
+    return this._correcta
+  }
+  
+  
+  public set value(v : string) {
+    this._correcta = v;
+  }
+  
+
+
+  public get pregunta() : string {
+    return this._pregunta;
+  }
+  public set spregunta(v : string) {
+    this._pregunta = v;
+  }
+  
 }
+
 

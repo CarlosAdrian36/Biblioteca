@@ -1,10 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { setLines } from '@angular/material/core';
-interface examen{
-  Pregunta: string,
-  Respuestas: string,
-  RespuestaCorrecta: string,
-}
+import { startWith } from 'rxjs';
+import { parrafo } from '../interface/examen.interface';
+
 
 @Component({
   selector: 'app-p2',
@@ -13,61 +10,87 @@ interface examen{
 })
 
 export class P2Component {
-  
-  @Output() texto = new EventEmitter<string>();
-  contenido = '';
-  Pregunta : string[] = [];
-  Respuestas : string[] = [];
-  Respuesta : string[] = [];
 
-  
-  
-  AbrirArchivo(doc : Event){
-    const loc =  doc.target
-    this.leerArchivo( loc )
+  @Output() texto = new EventEmitter<string>();
+
+
+  contenido = '';
+
+  AbrirArchivo(doc: Event) {
+    const loc = doc.target
+    this.leerArchivo(loc)
 
   }
-  leerArchivo( value : any ){
-    const file : File = value.files[0];
+  leerArchivo(value: any) {
+    const file: File = value.files[0];
     const leer = new FileReader();
     leer.onload = () => {
-      const contenido = leer.result
-      this.mostrar( contenido );
-      this.separar( contenido );
+      const contenido = leer.result;
+      this.mostrar(contenido);
+      this.separar(contenido);
     }
-    leer.readAsText( file );
-    
+    leer.readAsText(file);
+
   }
-  mostrar( txt: any){
-    this.contenido =  txt;
-    
+  mostrar(txt: any) {
+    this.contenido = txt;
+
   }
 
-  separar( txt : any){
-    const mensaje : string = txt;
-    const sentencias = mensaje.split(/\r\n|\n/);
-    for( let line: number = 0; line < sentencias.length - 1; line++){
-      console.log(line + "-->" + sentencias[line]);
+  separar(txt: any) {
+    const mensaje: string = txt;
+    // const sentencias = mensaje.split(/\r\n|\r /) 
+    const lineas = mensaje.split(/\r\n|\r /);
+    console.log(lineas)
+    this.construir(lineas)
+    
+    // this.construirLista(sentencias)
+  }
 
-      if( sentencias[line].startsWith('¿')){
-        this.Pregunta.push(sentencias[line])
-      }else if( sentencias[line].startsWith('A.')){
-        this.Respuestas.push(sentencias[line])
-      }else if( sentencias[line].startsWith('B.')){
-        this.Respuestas.push(sentencias[line])
-      }else if( sentencias[line].startsWith('C.')){
-        this.Respuestas.push(sentencias[line])
-      }else if(sentencias[line].startsWith('D.')){
-        this.Respuestas.push(sentencias[line])
-      }else if(sentencias[line].startsWith('ANSWER')){
-        this.Respuesta.push(sentencias[line])
+  construir( linea: string[] ){
+
+    for( let i : number = 0; i < linea.length; i++ ){
+      console.log( i + " --> " + linea[i])
+
+      if(linea[i] === ""){
+        const miParrafo = new parrafo("","",[] );
+        console.log("****************************" + i)
+        let y: number 
+        for( y = i  ; y>= i - 6; y--  ){
+          if( linea[y] === ""){
+            console.log("No hice nada")
+          }else{
+
+            if(linea[y].startsWith('¿')){
+              miParrafo.spregunta = linea[y]
+            }else{
+              if(linea[y].startsWith('ANSWER')){
+                const str = linea[y]
+                const newstr = str.slice(8)
+                miParrafo.value = newstr
+              }else{
+                const arr : Array<string> = []
+
+                 arr.push(linea[i]);
+                console.log(arr)
+
+              }
+            }
+
+          }
+        
+        }
+        console.log(miParrafo)
+        console.log( "Fin del for")
+        
+        
+        
       }
+      
     }
-    console.log('*******PREGUTNAS*******');
-    console.log(this.Pregunta);
-    console.log('*******RESPUESTAS*******');
-    console.log( this.Respuestas);
-    console.log('*******RESPUESTA*******')
-    console.log(this.Respuesta)
+    
+    
+    
   }
 }
+

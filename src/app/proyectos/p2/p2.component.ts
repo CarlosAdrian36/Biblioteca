@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { startWith } from 'rxjs';
 import { parrafo } from '../interface/examen.interface';
 
 
@@ -39,30 +38,23 @@ export class P2Component {
 
   separar(txt: any) {
     const mensaje: string = txt;
-    // const sentencias = mensaje.split(/\r\n|\r /) 
     const lineas = mensaje.split(/\r\n|\r /);
     console.log(lineas)
     this.construir(lineas)
     
-    // this.construirLista(sentencias)
   }
   examen : parrafo[] = []
 
   construir( linea: string[] ){
 
     for( let i : number = 0; i < linea.length; i++ ){
-      // console.log( i + " --> " + linea[i])
-
       if(linea[i] === ""){
         const miParrafo = new parrafo("","",[] );
-        // console.log("****************************" + i);
         const arr : Array<string> = [];
         let y: number;
         for( y = i  ; y>= i - 6; y--  ){
           if( linea[y] === ""){
-            // console.log("No hice nada");
           }else{
-
             if(linea[y].startsWith('¿')){
               miParrafo.spregunta = linea[y];
             }else{
@@ -77,25 +69,14 @@ export class P2Component {
                 
               }
             }
-            
           }
-          
         }
         miParrafo.respuestas = arr.reverse()
-        // console.log(arr.reverse())
         console.log(miParrafo)
         this.examen.push(miParrafo)
-
-        // console.log( "Fin del for")
-        
-        
-        
       }
-      
     }
-    
     console.log(this.examen)
-    
   }
 }
 

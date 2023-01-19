@@ -5,13 +5,43 @@
     width: 100%;
     
   }
-  .card-content{
+.card-content{
     max-width: 400px;
     margin-top: 20px;
     margin: 30px;
     width: 100%;
+    position: relative;
     
   }
-  mat-gird-list{
+mat-gird-list{
     background: 0000;
   }
+  
+.mx{
+    position: relative;
+
+    
+  }
+.pregunta{
+    background-color: rgba(180, 177, 177, 0.753);
+  }
+
+.card-content-exam{
+    max-width: 400px;
+    margin-top: 20px;
+    margin-bottom: 500px;
+    margin: 30px;
+    width: 100%;
+    position: relative;
+    
+  }
+#contenedor {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#contenedor > div {
+  width: 50%;
+  
+}

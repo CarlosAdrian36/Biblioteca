@@ -1,4 +1,4 @@
-<mat-card class="card-content">
+<!-- <mat-card class="card-content">
   <mat-card-header>
     <mat-card-title>Subir Examen</mat-card-title>
   </mat-card-header>
@@ -28,9 +28,9 @@
 
     
   </mat-card-content>
-</mat-card>
+</mat-card> -->
 
-<mat-card *ngFor="let item of examen; let i = index">
+<!-- <mat-card class="card-content-exam" *ngFor="let item of examen; let i = index">
   <mat-card-header>
     <mat-card-title >
       {{ i+1 }}.- {{item.pregunta}}
@@ -41,15 +41,80 @@
     </mat-card-subtitle>
   </mat-card-header>  
   <mat-card-content  >
-  A.-{{item.respuestas[0]}}
+  A.- {{item.respuestas[0]}}
   <br>
-  {{item.respuestas[1]}}
+  B.- {{item.respuestas[1]}}
   <br>
-  {{item.respuestas[2]}}
+  C.- {{item.respuestas[2]}}
   <br>
-  {{item.respuestas[3]}}
+  D.- {{item.respuestas[3]}}
   </mat-card-content>
 
-</mat-card>
+</mat-card> -->
+
+
+<div id="contenedor">
+  <div>
+    <mat-card class="card-content">
+      <mat-card-header>
+        <mat-card-title>Subir Examen</mat-card-title>
+      </mat-card-header>
+      <mat-card-content> </mat-card-content>
+    </mat-card>
+    
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title>Subir archivo</mat-card-title>
+        <mat-card-subtitle
+          >La idea es subir un documento con formato aiken y que automaticamente te
+          de un formulario para contestar
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content> </mat-card-content>
+      <mat-card-actions>
+        <input type="file" (change)="AbrirArchivo($event)" />
+      </mat-card-actions>
+    </mat-card>
+    
+    <mat-card class="card-content">
+      <mat-card-header>
+        <mat-card-title>Contenido </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        {{ contenido }}
+    
+        
+      </mat-card-content>
+    </mat-card>
+
+
+
+  </div>
+  <div>
+    <mat-card class="card-content-exam" *ngFor="let item of examen; let i = index">
+      <mat-card-header class="pregunta">
+        <mat-card-title >
+          {{ i+1 }}.- {{item.pregunta}}
+        </mat-card-title>
+        <mat-card-subtitle>
+          Elija una respuesta
+          <hr>
+        </mat-card-subtitle>
+      </mat-card-header>  
+
+      <mat-card-actions>
+        <div class="x" *ngFor="let x of item.respuestas; let j = index">
+            <input type="radio"> {{item.respuestas[j]}} 
+        </div>
+
+      </mat-card-actions>
+    
+    </mat-card>
+  </div>
+</div>
+
+
+
+
 
 

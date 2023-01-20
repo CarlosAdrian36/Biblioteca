@@ -14,6 +14,7 @@ export class P2Component {
 
 
   contenido = '';
+  
 
   AbrirArchivo(doc: Event) {
     const loc = doc.target
@@ -29,11 +30,9 @@ export class P2Component {
       this.separar(contenido);
     }
     leer.readAsText(file);
-
   }
   mostrar(txt: any) {
     this.contenido = txt;
-
   }
 
   separar(txt: any) {
@@ -41,7 +40,6 @@ export class P2Component {
     const lineas = mensaje.split(/\r\n|\r /);
     console.log(lineas)
     this.construir(lineas)
-    
   }
   examen : parrafo[] = []
 
@@ -66,7 +64,6 @@ export class P2Component {
                 const str1 = linea[y];
                 const newstr1 = str1.slice(3);
                 const reverse = arr.push(newstr1)
-                
               }
             }
           }
@@ -78,6 +75,7 @@ export class P2Component {
     }
     console.log(this.examen)
   }
+  
 
   
 }

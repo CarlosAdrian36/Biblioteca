@@ -80,8 +80,11 @@
       <mat-card-header>
         <mat-card-title>Contenido </mat-card-title>
       </mat-card-header>
-      <mat-card-content>
-        {{ contenido }}
+      <mat-card-content *ngFor="let item of examen; let i = index">
+       {{ i }}.- {{ item.pregunta }}  
+        <li>
+          {{item.respuestas}}
+        </li>
     
         
       </mat-card-content>

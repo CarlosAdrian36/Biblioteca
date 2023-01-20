@@ -78,5 +78,7 @@ export class P2Component {
     }
     console.log(this.examen)
   }
+
+  
 }
 

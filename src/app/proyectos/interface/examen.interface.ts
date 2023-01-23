@@ -2,9 +2,9 @@
 export class parrafo {
 
   private _pregunta: string;
-  private _correcta: string;
+  private _correcta: number;
   private _respuestas: string[];
-  constructor(pregunta: string, correcta: string, respuestas: string[]) {
+  constructor(pregunta: string, correcta: number, respuestas: string[]) {
 
     this._pregunta = pregunta
     this._correcta = correcta
@@ -26,12 +26,12 @@ export class parrafo {
 
 
 
-  public get value(): string {
+  public get correcta(): number {
     return this._correcta
   }
 
 
-  public set value(v: string) {
+  public set correcta(v: number) {
     this._correcta = v;
   }
 

@@ -33,5 +33,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatSidenavModule,
     MatToolbarModule,
   ]
+  
 })
 export class MaterialModule { }

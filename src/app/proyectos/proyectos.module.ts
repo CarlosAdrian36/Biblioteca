@@ -6,6 +6,7 @@ import { ProyectosRoutingModule } from './proyectos-routing.module';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 import { MaterialModule } from '../material/material.module';
 import { FormsModule } from '@angular/forms';
+import { P3Component } from './p3/p3.component';
 
 
 
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     P1Component,
     P2Component,
-    PaginaPrincipalComponent
+    PaginaPrincipalComponent,
+    P3Component
   ],
   imports: [
     CommonModule,

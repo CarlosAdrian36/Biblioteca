@@ -1,10 +1,11 @@
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 import { P1Component } from './p1/p1.component';
 import { P2Component } from './p2/p2.component';
-import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 import { P3Component } from './p3/p3.component';
+import { P4Component } from './p4/p4.component';
 
 const routes : Routes =[
 
@@ -25,8 +26,12 @@ const routes : Routes =[
         component: P3Component
       },
       {
+        path: 'Proyecto4',
+        component: P4Component
+      },
+      {
         path: '**',
-        redirectTo: 'Proyecto1'
+        redirectTo: 'Proyecto2'
       }
     ]
     

@@ -36,16 +36,14 @@
         <mat-card class="card-content-exam" *ngFor="let parrafos of examen; let i = index">
           <mat-card-header class="pregunta">
             <mat-card-title  >
-              {{ i+1 }}.- {{parrafos.pregunta}}
+              {{ i+1 }}.- {{parrafos.verpregunta}}
             </mat-card-title>
-            
             <mat-card-subtitle>
               Elija una respuesta
               <hr>
             </mat-card-subtitle>
           </mat-card-header>  
           <div >
-    
             <mat-card-content >
               <div *ngFor="let inciso  of parrafos.respuestas let x=index ">
                 <ng-container *ngIf="parrafos.correcta === x ; else elseTemplate">

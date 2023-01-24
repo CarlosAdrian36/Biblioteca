@@ -1,10 +1,10 @@
 <div id="conetendor">
-    <div>
-            <mat-card class="card-content">
-      <mat-card-header>
-        <mat-card-title>Subir Examen</mat-card-title>
-      </mat-card-header>
-      <mat-card-content> </mat-card-content>
+  <div>
+      <mat-card class="card-content">
+        <mat-card-header>
+          <mat-card-title>Subir Examen</mat-card-title>
+        </mat-card-header>
+        <mat-card-content> </mat-card-content>
     </mat-card>
     <mat-card class="card">
       <mat-card-header>
@@ -23,42 +23,42 @@
       <mat-card-header>
         <mat-card-title>Contenido </mat-card-title>
       </mat-card-header>
-      <mat-card-content *ngFor="let item of examen; let i = index">
-       {{ i+1 }}.- {{ item.verpregunta }}  
-        <li>
-        {{item.respuestas}}
-        </li>
-        {{item.correcta}}
-      </mat-card-content>
+        <mat-card-content *ngFor="let item of examen; let i = index">
+          {{ i+1 }}.- {{ item.verpregunta }}  
+          <li>
+          {{item.respuestas}}
+          </li>
+          Respuesta  ({{item.correcta}})
+        </mat-card-content>
     </mat-card>
-    </div>
-    <div>
-        <mat-card class="card-content-exam" *ngFor="let parrafos of examen; let i = index">
-          <mat-card-header class="pregunta">
-            <mat-card-title  >
-              {{ i+1 }}.- {{parrafos.verpregunta}}
-            </mat-card-title>
-            <mat-card-subtitle>
-              Elija una respuesta
-              <hr>
-            </mat-card-subtitle>
-          </mat-card-header>  
-          <div >
-            <mat-card-content >
-              <div *ngFor="let inciso  of parrafos.respuestas let x=index ">
-                <ng-container *ngIf="parrafos.correcta === x ; else elseTemplate">
-                  <label > <input type="radio"  checked> {{x}}.-{{inciso}}</label>
-                </ng-container>
-                <ng-template #elseTemplate>
-                  <label > <input type="radio" (click)="cambio ($event)" > {{x}}.-{{inciso}}</label>
-                </ng-template>
-              </div>
-            </mat-card-content>
+  </div>
+  <div>
+    <mat-card class="card-content-exam" *ngFor="let parrafos of examen; let i = index">
+      <mat-card-header class="pregunta">
+        <mat-card-title  >
+          {{ i+1 }}.- {{parrafos.verpregunta}}
+        </mat-card-title>
+        <mat-card-subtitle>
+          Elija una respuesta
+          <hr>
+        </mat-card-subtitle>
+      </mat-card-header>  
+      <div >
+        <mat-card-content >
+          <div *ngFor="let inciso  of parrafos.respuestas let x=index ">
+            <ng-container *ngIf="parrafos.correcta === x ; else elseTemplate">
+              <label > <input type="radio"  checked> {{x}}.-{{inciso}}</label>
+            </ng-container>
+            <ng-template #elseTemplate>
+              <label > <input type="radio" (click)="cambio ($event)" > {{x}}.-{{inciso}}</label>
+            </ng-template>
           </div>
-        </mat-card>
-        <button class="bt1" mat-raised-button color="primary" *ngIf="contenido !== '' " type="submit">
-          Guardar respuestas
-        </button>
+        </mat-card-content>
       </div>
+    </mat-card>
+    <button class="bt1" mat-raised-button color="primary" *ngIf="contenido !== '' " type="submit">
+      Guardar respuestas
+    </button>
+  </div>
 
 </div>

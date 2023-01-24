@@ -7,6 +7,7 @@ import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.co
 import { MaterialModule } from '../material/material.module';
 import { FormsModule } from '@angular/forms';
 import { P3Component } from './p3/p3.component';
+import { P4Component } from './p4/p4.component';
 
 
 
@@ -15,7 +16,8 @@ import { P3Component } from './p3/p3.component';
     P1Component,
     P2Component,
     PaginaPrincipalComponent,
-    P3Component
+    P3Component,
+    P4Component
   ],
   imports: [
     CommonModule,

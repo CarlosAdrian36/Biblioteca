@@ -24,7 +24,7 @@
         <mat-card-title>Contenido </mat-card-title>
       </mat-card-header>
       <mat-card-content *ngFor="let item of examen; let i = index">
-       {{ i+1 }}.- {{ item.pregunta }}  
+       {{ i+1 }}.- {{ item.verpregunta }}  
         <li>
         {{item.respuestas}}
         </li>
@@ -36,7 +36,7 @@
     <mat-card class="card-content-exam" *ngFor="let parrafos of examen; let i = index">
       <mat-card-header class="pregunta">
         <mat-card-title  >
-          {{ i+1 }}.- {{parrafos.pregunta}}
+          {{ i+1 }}.- {{parrafos.verpregunta}}
         </mat-card-title>
         
         <mat-card-subtitle>

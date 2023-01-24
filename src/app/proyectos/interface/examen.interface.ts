@@ -37,13 +37,15 @@ export class parrafo {
 
 
 
-  public get pregunta(): string {
+  public get verpregunta(): string {
     return this._pregunta;
   }
-  public set spregunta(v: string) {
+  public set pregunta(v: string) {
     this._pregunta = v;
   }
 
 }
+
+
 
 

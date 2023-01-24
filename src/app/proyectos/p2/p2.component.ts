@@ -14,12 +14,7 @@ export class P2Component {
 
 
   contenido = '';
-  comparador = {
-    A: 0,
-    B: 1,
-    C: 2,
-    D: 3,
-  }
+
   
   AbrirArchivo(doc: Event) {
     const loc = doc.target
@@ -59,7 +54,7 @@ export class P2Component {
           if( linea[y] === ""){
           }else{
             if(linea[y].startsWith('¿')){
-              miParrafo.spregunta = linea[y];
+              miParrafo.pregunta = linea[y];
             }else{
               if(linea[y].startsWith('ANSWER')){
                 const str = linea[y];

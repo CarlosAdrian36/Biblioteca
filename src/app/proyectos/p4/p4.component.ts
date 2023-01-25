@@ -29,12 +29,27 @@ export class P4Component {
 
   separar(txt: any) {
     const mensaje: string = txt;
-    const lineas = mensaje.split(/\r\n|\r | _ /);
-    console.log(lineas)
+    const lineas = mensaje.split(/.\r\n/gi);
+    // console.log(lineas)
     this.construir(lineas)
   }
-
+  expReg = new RegExp(/{.*}+/gi)
+  
   construir(linea: string[]){
+
+    for (let i = 0; i < linea.length; i++) {
+      const lineas = linea[i].split(this.expReg);
+      for (let j = 0; j < lineas.length; j++) {
+        const element = lineas[j];
+        
+      }
+      const respuestas = linea[i].match(this.expReg);
+      console.log(lineas);
+      console.log(respuestas);
+    }
+    
+
+
 
     
 

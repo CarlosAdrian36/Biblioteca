@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { oracion } from '../interface/oracion.class';
 
 @Component({
   selector: 'app-p4',
@@ -34,20 +35,48 @@ export class P4Component {
     this.construir(lineas)
   }
   expReg = new RegExp(/{.*}+/gi)
-  
+  expRegL = new RegExp(/~|{|}/)
+  expRegR = new RegExp(/~|=|{|}/)
+  Oraciones : oracion[]= [];
   construir(linea: string[]){
 
     for (let i = 0; i < linea.length; i++) {
+      const lineaOracion = new oracion([],[],'');
+      const arrOracion : Array<string> = [];
+      const arrRespuestas : Array<string> = [];
       const lineas = linea[i].split(this.expReg);
       for (let j = 0; j < lineas.length; j++) {
-        const element = lineas[j];
-        
+        arrOracion.push(lineas[j]);
       }
+      lineaOracion.setOracion = arrOracion
       const respuestas = linea[i].match(this.expReg);
-      console.log(lineas);
-      console.log(respuestas);
-    }
+      for (let x = 0; x < respuestas!.length; x++) {
+        const sinparentesis = respuestas![x].split(this.expRegL);
+        const sinparentesis1 = respuestas![x].split(this.expRegR);
+        for (let t = 0; t < sinparentesis.length; t++) {
+          
+          if(sinparentesis[t].startsWith('=')){
+            const resp = sinparentesis[t].split(this.expRegR);
+            const clear1 = resp.filter(Boolean);
+            console.log( clear1 )
+            lineaOracion.setCorrecta =  clear1.toString()
+          }
+          
+        }
+        const clean = sinparentesis1.filter(Boolean);
+        
+        for (let l = 0; l < clean.length; l++) {
+          arrRespuestas.push( clean[l]);
+          
+        }
+        lineaOracion.setRespuestas = arrRespuestas;
+      }
     
+      // lineaOracion.setRespuestas = arrRespuestas
+      
+      this.Oraciones.push(lineaOracion);
+    }
+    console.log(this.Oraciones);
 
 
 

@@ -1,4 +1,3 @@
-
 <div id="contenedor">
     <div>
       <mat-card class="card-titulo">
@@ -23,5 +22,24 @@
       
     </div>
     <div>
-      
+      <mat-card class="card-content-exam" *ngFor="let item of Oraciones; let i=index">
+        <mat-card-header class="pregunta">
+        </mat-card-header>
+        <mat-card-content>
+          {{item.getOracion[i]}} 
+          <span> 
+            <mat-form-field>
+              <mat-label>Selecciona una repsuesta</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let opcion of item.getRespuestas; let i=index " [value]="opcion[i]">
+                  {{opcion}}
+
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </span>
+           {{item.getOracion[i+1]}}
+        </mat-card-content>
+      </mat-card>
   </div>
+</div>

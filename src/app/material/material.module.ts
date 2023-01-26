@@ -10,6 +10,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 
@@ -30,6 +31,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatListModule,
     MatNativeDateModule,
     MatRadioModule,
+    MatSelectModule,
     MatSidenavModule,
     MatToolbarModule,
   ]

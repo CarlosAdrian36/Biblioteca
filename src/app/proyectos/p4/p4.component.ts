@@ -8,7 +8,7 @@ import { oracion } from '../interface/oracion.class';
 })
 export class P4Component {
   contenido: string = ''
-
+  correcta = ''
   AbrirArchivo(doc: Event) {
     const loc = doc.target
     this.leerArchivo(loc)
@@ -27,7 +27,7 @@ export class P4Component {
   mostrar(txt: any) {
     this.contenido = txt;
   }
-
+  
   separar(txt: any) {
     const mensaje: string = txt;
     const lineas = mensaje.split(/.\r\n/gi);
@@ -41,7 +41,7 @@ export class P4Component {
   construir(linea: string[]){
 
     for (let i = 0; i < linea.length; i++) {
-      const lineaOracion = new oracion([],[],'');
+      const lineaOracion = new oracion([],[],[]);
       const arrOracion : Array<string> = [];
       const arrRespuestas : Array<string> = [];
       const lineas = linea[i].split(this.expReg);
@@ -58,8 +58,8 @@ export class P4Component {
           if(sinparentesis[t].startsWith('=')){
             const resp = sinparentesis[t].split(this.expRegR);
             const clear1 = resp.filter(Boolean);
-            console.log( clear1 )
-            lineaOracion.setCorrecta =  clear1.toString()
+            lineaOracion.setCorrecta =  clear1
+            
           }
           
         }
@@ -77,15 +77,15 @@ export class P4Component {
       this.Oraciones.push(lineaOracion);
     }
     console.log(this.Oraciones);
-
-
-
     
-
-
+    
+    
+    
+    
+    
+    
+    
   }
-
-
-
+  
 
 }

@@ -24,18 +24,23 @@
     <div>
       <mat-card class="card-content-exam" *ngFor="let item of Oraciones; let i=index">
         <mat-card-header class="pregunta">
+          <mat-card-title>Seleciona una respuesta</mat-card-title>
         </mat-card-header>
         <mat-card-content>
           {{item.getOracion[i]}} 
-          <span> 
+          
+          <span > 
             <mat-form-field>
               <mat-label>Selecciona una repsuesta</mat-label>
-              <mat-select>
-                <mat-option *ngFor="let opcion of item.getRespuestas; let i=index " [value]="opcion[i]">
+              <mat-select [value]="item.getCorrecta[i]" >
+                <mat-option [value]="opcion" *ngFor="let opcion of item.getRespuestas; " >
                   {{opcion}}
-
                 </mat-option>
               </mat-select>
+
+
+
+
             </mat-form-field>
           </span>
            {{item.getOracion[i+1]}}

@@ -2,9 +2,9 @@ export class oracion{
 
     private _oracion: string[];
     private _respuestas: string[];
-    private _correcta: string;
+    private _correcta: string[];
   
-    constructor(oracion :  string [], respuesta: string[], correcta:string ){
+    constructor(oracion :  string [], respuesta: string[], correcta:string[] ){
       this._oracion = oracion;
       this._respuestas = respuesta;
       this._correcta = correcta;
@@ -27,11 +27,11 @@ export class oracion{
       this._respuestas = v;
     }
     
-    public get getCorrecta () : string {
+    public get getCorrecta () : string[] {
       return this._correcta
     }
     
-    public set setCorrecta(v : string) {
+    public set setCorrecta(v : string[]) {
       this._correcta = v;
     }
   }

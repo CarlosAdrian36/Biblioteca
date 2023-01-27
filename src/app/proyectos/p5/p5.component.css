@@ -1,0 +1,58 @@
+.card {
+    max-width: 400px;
+    margin-top: 20px;
+    margin: 30px;
+    width: 100%;
+    
+  }
+.card-titulo{
+    max-width: 400px;
+    margin-top: 20px;
+    margin: 30px;
+    width: 100%;
+    position: relative;
+    
+  }
+
+  
+.mx{
+    position: relative;
+
+    
+  }
+.pregunta{
+    background-color: rgba(180, 177, 177, 0.753);
+  }
+
+/* .card-content-exam{
+  margin-right: 50px;
+    
+  } */
+#contenedor {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#contenedor > div {
+  width: 35%;
+  
+}
+.bt1{
+  margin-top: 15px;
+  margin-left: 250px;
+}
+
+.card-content-exam{
+  margin-right: 10px;
+}
+
+.button{
+  margin-top: 50px;
+  padding: 5px;
+
+}
+
+.txt{
+  color: brown;
+}

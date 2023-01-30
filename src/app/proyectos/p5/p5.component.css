@@ -21,7 +21,7 @@
     
   }
 .pregunta{
-    background-color: rgba(180, 177, 177, 0.753);
+    background-color: rgb(108, 204, 225);
   }
 
 /* .card-content-exam{
@@ -44,11 +44,12 @@
 }
 
 .card-content-exam{
-  margin-right: 10px;
+  margin-right: 5px;
+  margin-top: 20px;  
 }
 
 .button{
-  margin-top: 50px;
+  margin-top: 10px;
   padding: 5px;
 
 }

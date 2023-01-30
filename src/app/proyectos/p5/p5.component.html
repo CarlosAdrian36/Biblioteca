@@ -23,29 +23,38 @@
     </div>
 
     
-    <div>
+    <div >
       <mat-card class="card-content-exam" *ngFor="let item of Oraciones; let i=index">
-        <mat-card-header class="pregunta">
-          <mat-card-title>Seleciona una respuesta</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          {{item.getOracion[i]}} 
+        <div>
+
+          <mat-card-content class="pregunta" *ngFor="let oracion of item.getOracion; let x=index"  >
+            <ng-container *ngIf=" x < 1 else elseTemplate">
+              {{oracion}} <span *ngIf="txt === '' ">__________________________</span>
+
+              <span class="txt" >
+                {{txt}}
+              </span>
+              
+            </ng-container>
+            <ng-template #elseTemplate>
+              {{oracion}}
+            </ng-template>
+  
+          </mat-card-content>
           
-          <span class="txt">
-            <font color="red">
-              {{txt}}
+            <mat-card-actions class="button">
+              <mat-chip-listbox >
+                <mat-chip-option color="accent" value="res" (click)="seleccionado( res )" value="res" mat-raised-button color="basic" *ngFor="let res of item.getRespuestas; let i=index">
+                  {{res}}
+                </mat-chip-option>
+              </mat-chip-listbox>
+              <!-- <button (click)="seleccionado( res )" value="res" mat-raised-button color="basic" *ngFor="let res of item.getRespuestas; let i=index"> {{res}} </button> -->
+            </mat-card-actions>
 
-            </font>
-          </span>
+        
           
-          {{item.getOracion[ i+1 ]}}
-
-
-        </mat-card-content>
-        <mat-card-actions class="button">
-          <button (click)="seleccionado( res )"  mat-raised-button color="basic" *ngFor="let res of item.getRespuestas; let i=index"> {{res}} </button>
-        </mat-card-actions>
+        </div>
       </mat-card>
-      
+        
   </div>
 </div>

@@ -47,12 +47,9 @@
         <mat-card-actions class="button">
           <mat-chip-listbox>
             <mat-chip-option
-              color="accent"
+              color="acent"
               value="res"
               (click)="seleccionado(res,i)"
-              value="res"
-              mat-raised-button
-              color="basic"
               *ngFor="let res of item.getRespuestas; let i = index"
             >
               {{ res }}

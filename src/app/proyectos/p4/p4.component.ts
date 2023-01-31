@@ -59,33 +59,16 @@ export class P4Component {
             const resp = sinparentesis[t].split(this.expRegR);
             const clear1 = resp.filter(Boolean);
             lineaOracion.setCorrecta =  clear1
-            
           }
-          
         }
         const clean = sinparentesis1.filter(Boolean);
-        
         for (let l = 0; l < clean.length; l++) {
           arrRespuestas.push( clean[l]);
-          
         }
         lineaOracion.setRespuestas = arrRespuestas;
       }
-    
-      // lineaOracion.setRespuestas = arrRespuestas
-      
       this.Oraciones.push(lineaOracion);
     }
     console.log(this.Oraciones);
-    
-    
-    
-    
-    
-    
-    
-    
   }
-  
-
 }

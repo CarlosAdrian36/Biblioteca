@@ -36,7 +36,7 @@
             <span *ngIf="txt === ''">__________________________</span>
 
             <span class="txt">
-              {{ txt }}
+              {{txt }}
             </span>
           </ng-container>
           <ng-template #elseTemplate>
@@ -47,8 +47,7 @@
         <mat-card-actions class="button">
           <mat-chip-listbox>
             <mat-chip-option
-              color="acent"
-              value="res"
+              color="accent"
               (click)="seleccionado(res,i)"
               *ngFor="let res of item.getRespuestas; let i = index"
             >

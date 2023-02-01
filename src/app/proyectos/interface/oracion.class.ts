@@ -3,13 +3,15 @@ export class oracion{
     private _oracion: string[];
     private _respuestas: string[];
     private _correcta: string[];
+    public seleccionada : string;
     
 
   
-    constructor(oracion :  string [], respuesta: string[], correcta:string[]){
+    constructor(oracion :  string [], respuesta: string[], correcta:string[], seleccionada: string){
       this._oracion = oracion;
       this._respuestas = respuesta;
       this._correcta = correcta;
+      this.seleccionada = seleccionada
   
     }
   

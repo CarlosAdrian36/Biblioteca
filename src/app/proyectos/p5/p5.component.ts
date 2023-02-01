@@ -51,7 +51,7 @@ export class P5Component {
     for (let i = 0; i < oracionCompleta.length; i++) {
       const lineaindividual = oracionCompleta[i];
       let arrOraciones = lineaindividual.split(/{.+}/);
-      const ob = new oracion ([],[],[],);
+      const ob = new oracion ([],[],[],'');
       
       ob.setOracion = arrOraciones;
       this.Oraciones.push(ob);
@@ -72,16 +72,14 @@ export class P5Component {
       ob.setRespuestas = respuestaslimpias;
       correctas = respuestas.split(/{| ?~\w+| =|=/);
       correctasLimpias = correctas.filter(Boolean);
-      ob.setCorrecta = correctasLimpias;
-      
-
-
+      ob.setCorrecta = correctasLimpias; 
     }
     console.log(this.Oraciones);
 
   }
-  seleccionado( res: string, indice :number ){
-    this.txt = res;
+  seleccionado( res: string , i : number){
+    this.txt = res
   }
+  
 
 }

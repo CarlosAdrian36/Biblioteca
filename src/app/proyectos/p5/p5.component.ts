@@ -77,8 +77,9 @@ export class P5Component {
     console.log(this.Oraciones);
 
   }
-  seleccionado( res: string , i : number){
-    this.txt = res
+  seleccionado(oracion: Oracion, res: string){
+    //this.txt = res
+    oracion.seleccionada = res;
   }
   
 

@@ -35,7 +35,7 @@
             {{ oracion }}
             <span *ngIf="txt === ''">__________________________</span>
 
-            <span class="txt">
+            <span class="txt" *ngIf="item.seleccionada">
               {{txt }}
             </span>
           </ng-container>
@@ -48,7 +48,7 @@
           <mat-chip-listbox>
             <mat-chip-option
               color="accent"
-              (click)="seleccionado(res,i)"
+              (click)="seleccionado(item,res)"
               *ngFor="let res of item.getRespuestas; let i = index"
             >
               {{ res }}

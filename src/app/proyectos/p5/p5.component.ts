@@ -29,7 +29,7 @@ export class P5Component {
   mostrar(txt: any) {
     this.contenido = txt;
   }
-  
+
   separar(txt: any) {
     const mensaje: string = txt;
     const lineas = mensaje.split(/.\r\n/gi);
@@ -39,8 +39,8 @@ export class P5Component {
 
   Oraciones : oracion[]= [];
   construir(oracionCompleta: string[]){
-    
-    
+
+
     let bandera = 0;
     let bandera2 = 0;
     let respuestas : string;
@@ -52,18 +52,18 @@ export class P5Component {
       const lineaindividual = oracionCompleta[i];
       let arrOraciones = lineaindividual.split(/{.+}/);
       const ob = new oracion ([],[],[],'');
-      
+
       ob.setOracion = arrOraciones;
       this.Oraciones.push(ob);
 
       for (let x = 0; x < lineaindividual.length; x++) {
         const element = lineaindividual[x];
         if(element === '{'){
-          bandera = x 
+          bandera = x
           // console.log(bandera);
         }
         if(element === '}'){
-          bandera2 = x 
+          bandera2 = x
         }
       }
       respuestas = lineaindividual.substring(bandera,bandera2);
@@ -72,15 +72,16 @@ export class P5Component {
       ob.setRespuestas = respuestaslimpias;
       correctas = respuestas.split(/{| ?~\w+| =|=/);
       correctasLimpias = correctas.filter(Boolean);
-      ob.setCorrecta = correctasLimpias; 
+      ob.setCorrecta = correctasLimpias;
     }
     console.log(this.Oraciones);
 
   }
-  seleccionado(oracion: Oracion, res: string){
+  seleccionado(oracion: oracion, res: string, event: any){
+    console.log(event);
     //this.txt = res
-    oracion.seleccionada = res;
+    oracion.seleccionada = event.selected ? res : null
   }
-  
+
 
 }

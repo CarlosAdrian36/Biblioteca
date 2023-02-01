@@ -33,10 +33,10 @@
         >
           <ng-container *ngIf="x < 1; else elseTemplate">
             {{ oracion }}
-            <span *ngIf="txt === ''">__________________________</span>
+            <span *ngIf="!item.seleccionada">__________________________</span>
 
             <span class="txt" *ngIf="item.seleccionada">
-              {{txt }}
+              {{item.seleccionada }}
             </span>
           </ng-container>
           <ng-template #elseTemplate>
@@ -48,7 +48,7 @@
           <mat-chip-listbox>
             <mat-chip-option
               color="accent"
-              (click)="seleccionado(item,res)"
+              (selectionChange)="seleccionado(item,res,$event)"
               *ngFor="let res of item.getRespuestas; let i = index"
             >
               {{ res }}

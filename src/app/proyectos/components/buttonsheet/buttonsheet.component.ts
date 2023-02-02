@@ -12,6 +12,7 @@ export class ButtonsheetComponent {
   constructor(private _bottomSheetRef: MatBottomSheetRef<MatBottomSheet>) {}
 
   openLink(event: MouseEvent): void {
+    console.log(event)
     this._bottomSheetRef.dismiss();
     event.preventDefault();
   }

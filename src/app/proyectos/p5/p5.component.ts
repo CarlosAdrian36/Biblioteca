@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { oracion } from '../interface/oracion.class';
 import { MatBottomSheet, MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { ButtonsheetComponent } from '../components/buttonsheet/buttonsheet.component';
 
 @Component({
   selector: 'app-p5',
@@ -86,7 +87,7 @@ export class P5Component {
   constructor(private bottomSheet : MatBottomSheet){}
 
   open(){
-    this.bottomSheet.open(MatBottomSheetComponent)
+    this.bottomSheet.open(ButtonsheetComponent);
     
   }
 

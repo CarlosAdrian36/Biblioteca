@@ -16,7 +16,14 @@
       </mat-card-header>
       <mat-card-content> </mat-card-content>
       <mat-card-actions>
-        <input type="file" (change)="AbrirArchivo($event)" />
+          <button mat-raised-button color="primary" (click)="open()">
+            <mat-icon aria-hidden="false" fontIcon="upgrade" >
+
+            </mat-icon>
+            Selecione un archivo
+          </button>
+
+        <!-- <input type="file" (change)="AbrirArchivo($event)" /> -->
       </mat-card-actions>
     </mat-card>
   </div>
@@ -47,7 +54,7 @@
         <mat-card-actions class="button">
           <mat-chip-listbox>
             <mat-chip-option
-              color="accent"
+              color="primary"
               (selectionChange)="seleccionado(item,res,$event)"
               *ngFor="let res of item.getRespuestas; let i = index"
             >

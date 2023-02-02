@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
@@ -22,6 +23,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 
   ],
   exports:[
+    MatBottomSheetModule,
     MatButtonModule,
     MatCardModule,
     MatChipsModule,

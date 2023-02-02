@@ -83,5 +83,9 @@ export class P5Component {
     oracion.seleccionada = event.selected ? res : null
   }
 
+  open(){
+    console.log("click")
+  }
+
 
 }

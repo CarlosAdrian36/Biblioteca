@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { P3Component } from './p3/p3.component';
 import { P4Component } from './p4/p4.component';
 import { P5Component } from './p5/p5.component';
+import { ButtonsheetComponent } from './components/buttonsheet/buttonsheet.component';
 
 
 
@@ -19,7 +20,8 @@ import { P5Component } from './p5/p5.component';
     PaginaPrincipalComponent,
     P3Component,
     P4Component,
-    P5Component
+    P5Component,
+    ButtonsheetComponent
   ],
   imports: [
     CommonModule,

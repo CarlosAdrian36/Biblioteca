@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { oracion } from '../interface/oracion.class';
+import { MatBottomSheet, MatBottomSheetModule } from '@angular/material/bottom-sheet';
 
 @Component({
   selector: 'app-p5',
@@ -82,9 +83,11 @@ export class P5Component {
     //this.txt = res
     oracion.seleccionada = event.selected ? res : null
   }
+  constructor(private bottomSheet : MatBottomSheet){}
 
   open(){
-    console.log("click")
+    this.bottomSheet.open(MatBottomSheetComponent)
+    
   }
 
 

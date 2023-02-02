@@ -44,7 +44,7 @@ $yellow: (
   400: #ffee58,
   500: #ffeb3b,
   600: #fdd835,
-  700: #fbc02d,
+  700: #FBC43D,
   800: #f9a825,
   900: #f57f17,
   A100: #ffff8d,
@@ -104,7 +104,7 @@ $blue: (
 
 
 $my-primary: mat-palette($blue ,900);
-$my-accent: mat-palette($yellow,500 );
+$my-accent: mat-palette($yellow,700 );
 $my-warn : mat-palette($teal);
 
 $my-theme : mat-light-theme((

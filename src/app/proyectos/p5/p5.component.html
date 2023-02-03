@@ -29,7 +29,7 @@
   </div>
 
   <div >
-    <mat-card
+    <mat-card 
       class="card-content-exam"
       *ngFor="let item of Oraciones; let i = index"
     >
@@ -65,5 +65,8 @@
         </mat-card-actions>
       </div>
     </mat-card>
+    <button class="bt1" mat-raised-button color="warn" *ngIf="contenido !== '' " type="submit">
+      Revisar
+    </button>
   </div>
 </div>

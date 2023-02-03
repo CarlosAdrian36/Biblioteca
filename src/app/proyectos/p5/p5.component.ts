@@ -11,7 +11,6 @@ import { ButtonsheetComponent } from '../components/buttonsheet/buttonsheet.comp
 export class P5Component {
   contenido: string = ''
   correcta = ''
-  txt = ''
 
   AbrirArchivo(doc: Event) {
     const loc = doc.target
@@ -80,9 +79,10 @@ export class P5Component {
 
   }
   seleccionado(oracion: oracion, res: string, event: any){
-    console.log(event);
+    console.log(event +"Eso es el evento");
     //this.txt = res
     oracion.seleccionada = event.selected ? res : null
+    console.log(oracion)
   }
   constructor(private bottomSheet : MatBottomSheet){}
 

@@ -24,7 +24,6 @@ export class ButtonsheetComponent {
 
   AbrirArchivo(doc: any){
 
-    console.log(doc);
     console.log(doc.target.files[0]);
     this._bottomSheetRef.dismiss(doc.target.files[0]);
 

@@ -1,19 +1,15 @@
 <mat-nav-list>
-    <a mat-list-item (click)="openLink($event)" type="file">
-      <span matListItemTitle>Este Dispositivo</span>
-      <span matLine>Cargar Archivo</span>
-        
-    </a>
+  
 
-    <button mat-raised-button color="warn" >
-      Este es un boton
-      <input type="file">
-    </button>
+  <input type="file" #fileInput (change)="AbrirArchivo(doc($event))" hidden >
+  <a mat-list-item  (click)="fileInput.click()" >
+    <span matListItemTitle>Este Dispositivo</span>
+    <span matLine>Cargar Archivo</span>
+    </a>
 
     <a href="https://docs.google.com/" mat-list-item (click)="openLink($event)">
       <span matListItemTitle>Google Docs</span>
       <span matLine>Embed in a document</span>
     </a>
-  
 
   </mat-nav-list>

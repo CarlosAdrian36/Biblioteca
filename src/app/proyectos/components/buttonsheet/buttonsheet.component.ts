@@ -1,6 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatBottomSheetRef, MatBottomSheet } from '@angular/material/bottom-sheet';
-import { Event } from '@angular/router';
 
 @Component({
   selector: 'app-buttonsheet',
@@ -9,8 +8,10 @@ import { Event } from '@angular/router';
 })
 export class ButtonsheetComponent {
   @ViewChild('fileInput') xx : any;
+
   constructor(private _bottomSheetRef: MatBottomSheetRef<MatBottomSheet>) {}
-doc : any;
+  doc : any;
+
 
 
 
@@ -21,11 +22,13 @@ doc : any;
   }
 
 
-  AbrirArchivo(doc: Event ){
-    
-    console.log(doc)
+  AbrirArchivo(doc: any){
+
+    console.log(doc);
+    console.log(doc.target.files[0]);
+    this._bottomSheetRef.dismiss(doc.target.files[0]);
 
   }
-  
+
 
 }

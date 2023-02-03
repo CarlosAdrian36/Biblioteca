@@ -1,7 +1,7 @@
 <mat-nav-list>
-  
 
-  <input type="file" #fileInput (change)="AbrirArchivo(doc($event))" hidden >
+
+  <input type="file" #fileInput (change)="AbrirArchivo($event)" hidden >
   <a mat-list-item  (click)="fileInput.click()" >
     <span matListItemTitle>Este Dispositivo</span>
     <span matLine>Cargar Archivo</span>

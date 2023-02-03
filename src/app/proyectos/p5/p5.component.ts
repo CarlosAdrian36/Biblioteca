@@ -18,14 +18,14 @@ export class P5Component {
     this.leerArchivo(loc)
   }
   leerArchivo(value: any) {
-    const file: File = value.files[0];
+    //const file: File = value.files[0];
     const leer = new FileReader();
     leer.onload = () => {
       const contenido = leer.result;
       this.mostrar(contenido);
       this.separar(contenido);
     }
-    leer.readAsText(file);
+    leer.readAsText(value);
   }
 
   mostrar(txt: any) {
@@ -87,8 +87,14 @@ export class P5Component {
   constructor(private bottomSheet : MatBottomSheet){}
 
   open(){
-    this.bottomSheet.open(ButtonsheetComponent);
-    
+    this.bottomSheet.open(ButtonsheetComponent).afterDismissed().subscribe(
+    result => {
+      console.log(result);
+      if(result) {
+        this.leerArchivo(result);
+      }
+    });
+
   }
 
 

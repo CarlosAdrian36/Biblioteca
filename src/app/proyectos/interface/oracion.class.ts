@@ -4,14 +4,17 @@ export class oracion{
     private _respuestas: string[];
     private _correcta: string[];
     public seleccionada : string | null;
+    public evaluacion : string;
 
 
 
-    constructor(oracion :  string [], respuesta: string[], correcta:string[], seleccionada: string){
+    constructor(oracion :  string [], respuesta: string[], correcta:string[], seleccionada: string, evaluacion : string ){
       this._oracion = oracion;
       this._respuestas = respuesta;
       this._correcta = correcta;
-      this.seleccionada = seleccionada
+      this.seleccionada = seleccionada;
+      this.evaluacion = evaluacion;
+
 
     }
 

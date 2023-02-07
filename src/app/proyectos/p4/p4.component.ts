@@ -41,7 +41,7 @@ export class P4Component {
   construir(linea: string[]){
 
     for (let i = 0; i < linea.length; i++) {
-      const lineaOracion = new oracion([],[],[],'');
+      const lineaOracion = new oracion([],[],[],'','');
       const arrOracion : Array<string> = [];
       const arrRespuestas : Array<string> = [];
       const lineas = linea[i].split(this.expReg);

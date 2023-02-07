@@ -20,9 +20,7 @@
 
     
   }
-.pregunta{
-    background-color: rgb(255, 255, 255);
-  }
+
 
 /* .card-content-exam{
   margin-right: 50px;
@@ -46,6 +44,15 @@
 .card-content-exam{
   margin-right: 5px;
   margin-top: 20px;  
+  
+}
+
+.Correcta{
+  background-color: rgb(206, 254, 204);
+}
+
+.incorrecta{
+  background-color: rgb(208, 81, 81);
 }
 
 .button{

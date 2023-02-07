@@ -52,7 +52,7 @@ export class P5Component {
     for (let i = 0; i < oracionCompleta.length; i++) {
       const lineaindividual = oracionCompleta[i];
       let arrOraciones = lineaindividual.split(/{.+}/);
-      const ob = new oracion ([],[],[],'');
+      const ob = new oracion ([],[],[],'','');
 
       ob.setOracion = arrOraciones;
       this.Oraciones.push(ob);
@@ -68,7 +68,7 @@ export class P5Component {
         }
       }
       respuestas = lineaindividual.substring(bandera,bandera2);
-      respuestas2 = respuestas.split(/{|}|~|\s=|=/);
+      respuestas2 = respuestas.split(/{|}|~|\s+~|\s=|=/);
       respuestaslimpias = respuestas2.filter(Boolean);
       ob.setRespuestas = respuestaslimpias;
       correctas = respuestas.split(/{| ?~\w+| =|=/);
@@ -79,23 +79,45 @@ export class P5Component {
 
   }
   seleccionado(oracion: oracion, res: string, event: any){
-    console.log(event +"Eso es el evento");
+    // console.log(event +"Eso es el evento");
     //this.txt = res
     oracion.seleccionada = event.selected ? res : null
-    console.log(oracion)
+    // console.log(oracion)
   }
   constructor(private bottomSheet : MatBottomSheet){}
 
   open(){
     this.bottomSheet.open(ButtonsheetComponent).afterDismissed().subscribe(
     result => {
-      console.log(result);
+      // console.log(result);
       if(result) {
         this.leerArchivo(result);
       }
     });
 
+    
   }
+  condicion : number = 0
+  evaluar(oraciones: oracion[]){
+    oraciones.forEach(element => {
+      // console.log(element.seleccionada)
+      // console.log(element.getCorrecta)
+      let r1 : string | null;
+      let r2 : string;
+      r1 = element.seleccionada;
+      r2 = element.getCorrecta.toString();
 
+      console.log(r1,r2)
+
+      r1 === r2  ? element.evaluacion = 'true' : element.evaluacion = 'false'
+
+
+      
+      
+      
+    });
+    console.log(oraciones)
+
+  }
 
 }

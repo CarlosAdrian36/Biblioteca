@@ -30,9 +30,9 @@
 
   <div >
     <mat-card 
-      
-      class="card-content-exam"
-      *ngFor="let item of Oraciones; let i = index"
+    class="card-content-exam"
+    *ngFor="let item of Oraciones; let i = index"
+    [ngStyle]="{'background-color' : (item.evaluacion === '') ? ('white') : (item.evaluacion === 'true') ? ('#9CCC65') : (item.evaluacion === 'false') ? ' rgb(208, 81, 81)' : (item.evaluacion) }"
     >
       <div>
         <mat-card-content

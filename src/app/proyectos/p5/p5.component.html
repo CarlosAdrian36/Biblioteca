@@ -48,7 +48,22 @@
               {{ oracion }}
             </ng-template>
           </mat-card-title>
-          <img mat-card-sm-image src="../../../assets/evaluacion/done.png">
+          <ng-container *ngIf=" item.evaluacion === 'true' ; else elseTemplate">
+            <img mat-card-sm-image src="../../../assets/evaluacion/done.png">
+            
+          </ng-container>
+          <ng-template #elseTemplate >
+            <ng-container *ngIf="item.evaluacion === 'false'; else elseTemplate">
+              <img mat-card-sm-image src="../../../assets/evaluacion/error.png">
+              
+            </ng-container>
+            <ng-template #elseTemplate>
+              
+            </ng-template>
+            
+            
+          </ng-template>
+          
           
         </mat-card-title-group>
 

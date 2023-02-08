@@ -14,18 +14,6 @@
     
   }
 
-  
-.mx{
-    position: relative;
-
-    
-  }
-
-
-/* .card-content-exam{
-  margin-right: 50px;
-    
-  } */
 #contenedor {
   display: flex;
   flex-direction: row;
@@ -42,25 +30,13 @@
 }
 
 .card-content-exam{
-  margin-right: 5px;
-  margin-top: 20px;  
+  margin-right: 0px ;
+  margin-top: 40px;  
   
-}
-
-.Correcta{
-  background-color: rgb(135, 206, 132);
-}
-
-.incorrecta{
-  background-color: rgb(208, 81, 81);
 }
 
 .button{
   margin-top: 10px;
   padding: 5px;
 
-}
-
-.txt{
-  color: rgb(211, 27, 27);
 }

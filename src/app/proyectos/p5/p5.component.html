@@ -18,12 +18,9 @@
       <mat-card-actions>
           <button mat-raised-button color="primary" (click)="open()">
             <mat-icon aria-hidden="true" fontIcon="outbox" >
-
             </mat-icon>
             Subir Archivo
           </button>
-
-        <!-- <input type="file" (change)="AbrirArchivo($event)" /> -->
       </mat-card-actions>
     </mat-card>
   </div>
@@ -33,24 +30,43 @@
     class="card-content-exam"
     *ngFor="let item of Oraciones; let i = index"
     [ngStyle]="{'background-color' : (item.evaluacion === '') ? ('white') : (item.evaluacion === 'true') ? ('#83E48A') : (item.evaluacion === 'false') ? ' #E6AEAE' : (item.evaluacion) }"
-
     >
-
-
     <div>
-      <mat-card-title-group>
-        <img mat-card-xl-image src="./src/assets/done.png">
+      <mat-card-header>
         
-      </mat-card-title-group>
-        <mat-card-content
-          class="pregunta"
+        <mat-card-title-group>
+          <mat-card-title *ngFor="let oracion of item.getOracion; let x = index">
+            <ng-container *ngIf="x < 1; else elseTemplate">
+              {{ oracion }}
+              <span *ngIf="!item.seleccionada">__________________________</span>
+  
+              <span  *ngIf="item.seleccionada">
+                {{item.seleccionada }}
+              </span>
+            </ng-container>
+            <ng-template #elseTemplate>
+              {{ oracion }}
+            </ng-template>
+          </mat-card-title>
+          <img mat-card-sm-image src="../../../assets/evaluacion/done.png">
+          
+        </mat-card-title-group>
+
+      </mat-card-header>
+
+
+
+
+
+
+        <!-- <mat-card-content
           *ngFor="let oracion of item.getOracion; let x = index"
         >
           <ng-container *ngIf="x < 1; else elseTemplate">
             {{ oracion }}
             <span *ngIf="!item.seleccionada">__________________________</span>
 
-            <span class="txt" *ngIf="item.seleccionada">
+            <span  *ngIf="item.seleccionada">
               {{item.seleccionada }}
             </span>
           </ng-container>
@@ -58,7 +74,7 @@
             {{ oracion }}
           </ng-template>
 
-        </mat-card-content>
+        </mat-card-content> -->
         
 
         <mat-card-actions class="button"   >

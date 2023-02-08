@@ -29,19 +29,23 @@
     <mat-card 
     class="card-content-exam"
     *ngFor="let item of Oraciones; let i = index"
-    [ngStyle]="{'background-color' : (item.evaluacion === '') ? ('white') : (item.evaluacion === 'true') ? ('#83E48A') : (item.evaluacion === 'false') ? ' #E6AEAE' : (item.evaluacion) }"
+    [ngStyle]="{'background-color' : (item.evaluacion === '' || null) ? ('white') : (item.evaluacion === 'true') ? ('#83E48A') : (item.evaluacion === 'false') ? ' #E6AEAE' : (item.evaluacion) }"
     >
     <div>
       <mat-card-header>
-        
         <mat-card-title-group>
           <mat-card-title *ngFor="let oracion of item.getOracion; let x = index">
             <ng-container *ngIf="x < 1; else elseTemplate">
               {{ oracion }}
               <span *ngIf="!item.seleccionada">__________________________</span>
-  
               <span  *ngIf="item.seleccionada">
-                {{item.seleccionada }}
+                <u>
+                  <strong>
+
+                    {{item.seleccionada }}
+                  </strong>
+
+                </u>
               </span>
             </ng-container>
             <ng-template #elseTemplate>
@@ -50,27 +54,19 @@
           </mat-card-title>
           <ng-container *ngIf=" item.evaluacion === 'true' ; else elseTemplate">
             <img mat-card-sm-image src="../../../assets/evaluacion/done.png">
-            
           </ng-container>
           <ng-template #elseTemplate >
             <ng-container *ngIf="item.evaluacion === 'false'; else elseTemplate">
               <img mat-card-sm-image src="../../../assets/evaluacion/error.png">
-              
             </ng-container>
             <ng-template #elseTemplate>
-              
             </ng-template>
-            
-            
           </ng-template>
-          
-          
         </mat-card-title-group>
-
       </mat-card-header>
         <mat-card-actions class="button"   >
           <mat-chip-listbox  [disabled]="deshabilitar">
-            <mat-chip-option 
+            <mat-chip-option [selected]="opcion"
               color="primary"
               (selectionChange)="seleccionado(item,res,$event)"
               *ngFor="let res of item.getRespuestas; let i = index"
@@ -81,8 +77,13 @@
         </mat-card-actions>
       </div>
     </mat-card>
-    <button class="bt1" mat-raised-button color="warn" *ngIf="contenido !== '' " type="submit" (click)="evaluar(Oraciones)">
-      Revisar
-    </button>
+    <div *ngIf="contenido !== '' " >
+      <button class="bt1" mat-raised-button color="warn"  type="submit" (click)="evaluar(Oraciones)">
+        Revisar
+      </button>
+      <button class="bt2" mat-raised-button color="accent" (click)="resetear(Oraciones)">
+        Resetear
+      </button>
+    </div>
   </div>
 </div>

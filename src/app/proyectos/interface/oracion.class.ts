@@ -4,7 +4,7 @@ export class oracion{
     private _respuestas: string[];
     private _correcta: string[];
     public seleccionada : string | null;
-    public evaluacion : string;
+    public evaluacion : string | null;
 
 
 

@@ -19,6 +19,7 @@ export class P5Component {
   leerArchivo(value: any) {
     const leer = new FileReader();
     leer.onload = () => {
+      this.Oraciones = []
       const contenido = leer.result;
       this.mostrar(contenido);
       this.separar(contenido);
@@ -72,8 +73,7 @@ export class P5Component {
       correctasLimpias = correctas.filter(Boolean);
       ob.setCorrecta = correctasLimpias;
     }
-    console.log(this.Oraciones);
- 
+    
   }
   seleccionado(oracion: oracion, res: string, event: any){
     oracion.seleccionada = event.selected ? res : null
@@ -84,10 +84,10 @@ export class P5Component {
     this.bottomSheet.open(ButtonsheetComponent).afterDismissed().subscribe(
     result => {
       if(result) {
+
         this.leerArchivo(result);
       }
     });
-
     
   }
   deshabilitar : boolean = false
@@ -101,16 +101,26 @@ export class P5Component {
       r1 = element.seleccionada;
       r2 = element.getCorrecta.toString();
 
-      console.log(r1,r2)
 
       r1 === r2  ? element.evaluacion = 'true' : element.evaluacion = 'false'
-
-
-      
-      
-      
     });
     console.log(oraciones)
+
+  }
+
+  opcion: boolean | null = null
+  resetear(oracion : oracion[]){
+    // this.opcion = true
+    this.opcion = null
+    console.log(this.opcion);
+    this.deshabilitar = false;
+    oracion.forEach(element => {
+      element.seleccionada = null;
+      element.evaluacion = null;
+      this.opcion = false
+    });
+    console.log(this.opcion);
+
 
   }
 

@@ -53,30 +53,6 @@
         </mat-card-title-group>
 
       </mat-card-header>
-
-
-
-
-
-
-        <!-- <mat-card-content
-          *ngFor="let oracion of item.getOracion; let x = index"
-        >
-          <ng-container *ngIf="x < 1; else elseTemplate">
-            {{ oracion }}
-            <span *ngIf="!item.seleccionada">__________________________</span>
-
-            <span  *ngIf="item.seleccionada">
-              {{item.seleccionada }}
-            </span>
-          </ng-container>
-          <ng-template #elseTemplate>
-            {{ oracion }}
-          </ng-template>
-
-        </mat-card-content> -->
-        
-
         <mat-card-actions class="button"   >
           <mat-chip-listbox  [disabled]="deshabilitar">
             <mat-chip-option 
@@ -87,7 +63,6 @@
               {{ res }}
             </mat-chip-option>
           </mat-chip-listbox>
-          <!-- <button (click)="seleccionado( res )" value="res" mat-raised-button color="basic" *ngFor="let res of item.getRespuestas; let i=index"> {{res}} </button> -->
         </mat-card-actions>
       </div>
     </mat-card>

@@ -17,7 +17,6 @@ export class P5Component {
     this.leerArchivo(loc)
   }
   leerArchivo(value: any) {
-    //const file: File = value.files[0];
     const leer = new FileReader();
     leer.onload = () => {
       const contenido = leer.result;
@@ -34,7 +33,6 @@ export class P5Component {
   separar(txt: any) {
     const mensaje: string = txt;
     const lineas = mensaje.split(/.\r\n/gi);
-    // console.log(lineas)
     this.construir(lineas)
   }
 
@@ -61,7 +59,6 @@ export class P5Component {
         const element = lineaindividual[x];
         if(element === '{'){
           bandera = x
-          // console.log(bandera);
         }
         if(element === '}'){
           bandera2 = x
@@ -79,17 +76,13 @@ export class P5Component {
  
   }
   seleccionado(oracion: oracion, res: string, event: any){
-    // console.log(event +"Eso es el evento");
-    //this.txt = res
     oracion.seleccionada = event.selected ? res : null
-    // console.log(oracion)
   }
   constructor(private bottomSheet : MatBottomSheet){}
 
   open(){
     this.bottomSheet.open(ButtonsheetComponent).afterDismissed().subscribe(
     result => {
-      // console.log(result);
       if(result) {
         this.leerArchivo(result);
       }
@@ -102,8 +95,7 @@ export class P5Component {
   evaluar(oraciones: oracion[]){
     this.deshabilitar = true
     oraciones.forEach(element => {
-      // console.log(element.seleccionada)
-      // console.log(element.getCorrecta)
+
       let r1 : string | null;
       let r2 : string;
       r1 = element.seleccionada;

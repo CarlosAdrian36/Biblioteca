@@ -76,7 +76,7 @@ export class P5Component {
       ob.setCorrecta = correctasLimpias;
     }
     console.log(this.Oraciones);
-
+ 
   }
   seleccionado(oracion: oracion, res: string, event: any){
     // console.log(event +"Eso es el evento");
@@ -97,8 +97,10 @@ export class P5Component {
 
     
   }
+  deshabilitar : boolean = false
   condicion : number = 0
   evaluar(oraciones: oracion[]){
+    this.deshabilitar = true
     oraciones.forEach(element => {
       // console.log(element.seleccionada)
       // console.log(element.getCorrecta)

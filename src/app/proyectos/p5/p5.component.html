@@ -32,9 +32,13 @@
     <mat-card 
     class="card-content-exam"
     *ngFor="let item of Oraciones; let i = index"
-    [ngStyle]="{'background-color' : (item.evaluacion === '') ? ('white') : (item.evaluacion === 'true') ? ('#9CCC65') : (item.evaluacion === 'false') ? ' rgb(208, 81, 81)' : (item.evaluacion) }"
+    [ngStyle]="{'background-color' : (item.evaluacion === '') ? ('white') : (item.evaluacion === 'true') ? ('#90F508') : (item.evaluacion === 'false') ? ' rgb(208, 81, 81)' : (item.evaluacion) }"
+    
     >
-      <div>
+    <!-- [ngClass]="{
+      'disabled' : desabilitar
+    }" -->
+    <div>
         <mat-card-content
           class="pregunta"
           *ngFor="let oracion of item.getOracion; let x = index"
@@ -52,9 +56,9 @@
           </ng-template>
         </mat-card-content>
 
-        <mat-card-actions class="button">
-          <mat-chip-listbox>
-            <mat-chip-option
+        <mat-card-actions class="button"   >
+          <mat-chip-listbox  [disabled]="deshabilitar">
+            <mat-chip-option 
               color="primary"
               (selectionChange)="seleccionado(item,res,$event)"
               *ngFor="let res of item.getRespuestas; let i = index"

@@ -37,6 +37,8 @@ export class P5Component {
     this.construir(lineas)
   }
 
+  //Examen: Examen
+  //Examen.Reactivos.push()
   Oraciones : oracion[]= [];
   construir(oracionCompleta: string[]){
 

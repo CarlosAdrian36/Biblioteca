@@ -1,3 +1,13 @@
+
+/*
+export class Examen(Conjunto de Reactivo)
+export class Reactivo(Pregunta y Resupetsas)
+export class Respuesta<Type>
+
+Opcional
+export class Pregunta
+*/
+
 export class oracion{
 
     private _oracion: string[];

@@ -73,7 +73,7 @@ export class P5Component {
       correctasLimpias = correctas.filter(Boolean);
       ob.setCorrecta = correctasLimpias;
     }
-    
+
   }
   seleccionado(oracion: oracion, res: string, event: any){
     oracion.seleccionada = event.selected ? res : null
@@ -88,7 +88,7 @@ export class P5Component {
         this.leerArchivo(result);
       }
     });
-    
+
   }
   deshabilitar : boolean = false
   condicion : number = 0
@@ -109,15 +109,14 @@ export class P5Component {
   }
 
   opcion: boolean | null = null
-  resetear(oracion : oracion[]){
+  resetear(){
     // this.opcion = true
     this.opcion = null
     console.log(this.opcion);
     this.deshabilitar = false;
-    oracion.forEach(element => {
+    this.Oraciones.forEach(element => {
       element.seleccionada = null;
       element.evaluacion = null;
-      this.opcion = false
     });
     console.log(this.opcion);
 

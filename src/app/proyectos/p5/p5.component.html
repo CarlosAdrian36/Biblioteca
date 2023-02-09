@@ -26,7 +26,7 @@
   </div>
 
   <div >
-    <mat-card 
+    <mat-card
     class="card-content-exam"
     *ngFor="let item of Oraciones; let i = index"
     [ngStyle]="{'background-color' : (item.evaluacion === '' || null) ? ('white') : (item.evaluacion === 'true') ? ('#83E48A') : (item.evaluacion === 'false') ? ' #E6AEAE' : (item.evaluacion) }"
@@ -66,7 +66,7 @@
       </mat-card-header>
         <mat-card-actions class="button"   >
           <mat-chip-listbox  [disabled]="deshabilitar">
-            <mat-chip-option [selected]="opcion"
+            <mat-chip-option [selected]="res === item.seleccionada"
               color="primary"
               (selectionChange)="seleccionado(item,res,$event)"
               *ngFor="let res of item.getRespuestas; let i = index"
@@ -81,7 +81,7 @@
       <button class="bt1" mat-raised-button color="warn"  type="submit" (click)="evaluar(Oraciones)">
         Revisar
       </button>
-      <button class="bt2" mat-raised-button color="accent" (click)="resetear(Oraciones)">
+      <button class="bt2" mat-raised-button color="accent" (click)="resetear()">
         Resetear
       </button>
     </div>

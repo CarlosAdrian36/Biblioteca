@@ -6,7 +6,49 @@ export class Respuesta<Type>
 
 Opcional
 export class Pregunta
+
 */
+
+
+export class Examen  {
+  private _IdExamen : number;
+
+  constructor (IdExamen : number){
+    this._IdExamen = IdExamen;
+  }
+
+}
+
+export class Reactivo extends Examen {
+  
+  private _IdReactivo: number;
+  
+
+  constructor( idReactivo : number, idExamen : number){
+    super(idExamen)
+    this._IdReactivo = idReactivo;
+  }
+
+}
+export class Respuestas   {
+
+  private _respuestas: string[]
+  constructor( respuesta: string[] ){
+    this._respuestas = respuesta
+  }
+
+
+}
+export class Pregunta{
+
+  
+
+}
+
+
+
+
+
 
 export class oracion{
 

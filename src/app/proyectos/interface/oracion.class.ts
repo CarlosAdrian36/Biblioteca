@@ -16,34 +16,69 @@ export class Examen  {
   constructor (IdExamen : number){
     this._IdExamen = IdExamen;
   }
-
 }
 
 export class Reactivo extends Examen {
   
   private _IdReactivo: number;
-  
+  private _Pregunta : Pregunta;
+  private _Respuesta : Respuestas[];
 
-  constructor( idReactivo : number, idExamen : number){
+  constructor( idReactivo : number, idExamen : number , respuesta : Respuestas[], pregunta : Pregunta){
     super(idExamen)
     this._IdReactivo = idReactivo;
+    this._Respuesta = respuesta;
+    this._Pregunta = pregunta;
   }
-
 }
+
 export class Respuestas   {
 
   private _respuestas: string[]
   constructor( respuesta: string[] ){
     this._respuestas = respuesta
   }
-
-
 }
+
 export class Pregunta{
 
-  
+  private _idPregunta : number;
+  constructor(idpregunta: number){
+    this._idPregunta = idpregunta;
+  }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -58,18 +93,13 @@ export class oracion{
     public seleccionada : string | null;
     public evaluacion : string | null;
 
-
-
     constructor(oracion :  string [], respuesta: string[], correcta:string[], seleccionada: string, evaluacion : string ){
       this._oracion = oracion;
       this._respuestas = respuesta;
       this._correcta = correcta;
       this.seleccionada = seleccionada;
       this.evaluacion = evaluacion;
-
-
     }
-
 
     public get getOracion() : string[] {
       return this._oracion;
@@ -94,6 +124,5 @@ export class oracion{
     public set setCorrecta(v : string[]) {
       this._correcta = v;
     }
-
 
   }

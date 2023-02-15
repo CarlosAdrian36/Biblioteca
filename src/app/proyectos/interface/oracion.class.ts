@@ -18,48 +18,69 @@ export class Examen  {
   }
 }
 
-export class Reactivo extends Examen {
+export class Reactivo   {
   
   private _IdReactivo: number;
   private _Pregunta : Pregunta;
   private _Respuesta : Respuestas[];
 
   constructor( idReactivo : number, idExamen : number , respuesta : Respuestas[], pregunta : Pregunta){
-    super(idExamen)
+    // super(idExamen)
     this._IdReactivo = idReactivo;
     this._Respuesta = respuesta;
     this._Pregunta = pregunta;
   }
 }
+class Pregunta  {
 
-export class Respuestas   {
+private _idPregunta : number;
+constructor(idpregunta: number){
+  this._idPregunta = idpregunta;
+}
+
+}
+
+ class Respuestas {
 
   private _respuestas: string[]
   constructor( respuesta: string[] ){
     this._respuestas = respuesta
+
   }
 }
 
-export class Pregunta{
 
-  private _idPregunta : number;
-  constructor(idpregunta: number){
-    this._idPregunta = idpregunta;
-  }
+
+
+
+
+
+
+
+
+
+interface Reactivo1 extends Pregunta1{
+  idReactivo : number;
 
 }
 
+interface Pregunta1 extends Respuestas1{
+  idPregunta : number;
+}
+interface Respuestas1 extends Correcta1 {
+  idRespuestas : number;
+}
+
+interface Correcta1{
+  idCorrecta: number
+}
 
 
+class generic extends Reactivo{
+ 
+  
 
-
-
-
-
-
-
-
-
+}
 
 
 

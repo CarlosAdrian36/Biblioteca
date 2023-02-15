@@ -7,32 +7,87 @@ export class Respuesta<Type>
 Opcional
 export class Pregunta
 
+
+
+Examen<Examen> {
+ -  Reactivos<Reactivo[]>: [
+    <Reactivo>{
+      - RespuestaSeleccionada<Respuesta>
+      - RespuestaCorrecta<Respuesta>
+      - Pregunta<Pregunta>
+      - Respuestas<Respuesta[]>: [
+        <Respuesta>{
+
+        },
+        <Respuesta>{
+
+        }
+        <Respuesta>{
+
+        }
+      ]
+    },
+    <Reactivo>{
+      -
+      - Pregunta<Pregunta>
+      - Respuestas<Respuesta[]>: [
+        <Respuesta>{
+
+        }
+      ]
+    },
+    <Reactivo>{
+      -
+      - Pregunta<Pregunta>
+      - Respuestas<Respuesta[]>: [
+        <Respuesta>{
+
+        }
+      ]
+    }
+  ]
+}
 */
 
 
 export class Examen  {
   private _IdExamen : number;
+  public Nombre: string = '';
+  public PuntosRpobatorios: number = 0;
+  public Reactivos: Reactivo[] = [];
 
-  constructor (IdExamen : number){
+  constructor (IdExamen : number, Reactivos?: Reactivo[]){
     this._IdExamen = IdExamen;
+    this.Reactivos = Reactivos ? Reactivos : [];
   }
 }
 
 export class Reactivo   {
-  
+
   private _IdReactivo: number;
   private _Pregunta : Pregunta;
-  private _Respuesta : Respuestas[];
+  private _Respuestas : Respuesta[];
+  private _Respuesta: Respuesta | null = null;
+  private _RespuestaCorrecta: Respuesta;
 
-  constructor( idReactivo : number, idExamen : number , respuesta : Respuestas[], pregunta : Pregunta){
+  constructor(data?: any|null) {// idReactivo : number, idExamen : number , respuestas : Respuesta[], pregunta : Pregunta, correcta: Respuesta){
     // super(idExamen)
-    this._IdReactivo = idReactivo;
-    this._Respuesta = respuesta;
-    this._Pregunta = pregunta;
+    this._IdReactivo = data?.idReactivo;
+    this._Respuestas = data?.respuestas;
+    this._Pregunta = data?.pregunta;
+    this._RespuestaCorrecta = data?.correcta;
+  }
+
+  get isContestada(): boolean {
+    return this._RespuestaCorrecta ? true : false;
+  }
+  get isCorrecta(): boolean {
+    return true;
   }
 }
 class Pregunta  {
 
+private oracion: string[] = [];
 private _idPregunta : number;
 constructor(idpregunta: number){
   this._idPregunta = idpregunta;
@@ -40,7 +95,7 @@ constructor(idpregunta: number){
 
 }
 
- class Respuestas {
+ class Respuesta {
 
   private _respuestas: string[]
   constructor( respuesta: string[] ){
@@ -77,21 +132,10 @@ interface Correcta1{
 
 
 class generic extends Reactivo{
- 
-  
+
+
 
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

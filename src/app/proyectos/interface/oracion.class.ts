@@ -106,48 +106,7 @@ constructor(idpregunta: number){
 
 
 
-
-
-
-
-
-
-
-
-interface Reactivo1 extends Pregunta1{
-  idReactivo : number;
-
-}
-
-interface Pregunta1 extends Respuestas1{
-  idPregunta : number;
-}
-interface Respuestas1 extends Correcta1 {
-  idRespuestas : number;
-}
-
-interface Correcta1{
-  idCorrecta: number
-}
-
-
-class generic extends Reactivo{
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 export class oracion{

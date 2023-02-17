@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { oracion } from '../interface/oracion.class';
+import { oracion, Reactivo } from '../interface/oracion.class';
 import { MatBottomSheet, MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { ButtonsheetComponent } from '../components/buttonsheet/buttonsheet.component';
 
@@ -54,6 +54,8 @@ export class P5Component {
       const lineaindividual = oracionCompleta[i];
       let arrOraciones = lineaindividual.split(/{.+}/);
       const ob = new oracion ([],[],[],'','');
+      
+      const react  = new Reactivo()
 
       ob.setOracion = arrOraciones;
       this.Oraciones.push(ob);

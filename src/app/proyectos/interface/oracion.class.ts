@@ -70,9 +70,6 @@ export class Examen  {
   public set setIdExamen(v : number) {
     this._IdExamen = v;
   }
-  
-  
-  
 
 }
 

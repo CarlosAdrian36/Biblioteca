@@ -60,6 +60,19 @@ export class Examen  {
     this._IdExamen = IdExamen;
     this.Reactivos = Reactivos ? Reactivos : [];
   }
+
+  
+  public get getIdExamen() : number {
+    return this._IdExamen;
+  }
+
+  
+  public set setIdExamen(v : number) {
+    this._IdExamen = v;
+  }
+  
+  
+
 }
 
 export class Reactivo   {
@@ -67,7 +80,7 @@ export class Reactivo   {
   private _IdReactivo: number;
   private _Pregunta : Pregunta;
   private _Respuestas : Respuesta[];
-  private _Respuesta: Respuesta | null = null;
+  private _RespuestaSeleccionada: Respuesta | null = null;
   private _RespuestaCorrecta: Respuesta;
 
   constructor(data?: any|null) {// idReactivo : number, idExamen : number , respuestas : Respuesta[], pregunta : Pregunta, correcta: Respuesta){
@@ -84,22 +97,90 @@ export class Reactivo   {
   get isCorrecta(): boolean {
     return true;
   }
+  
+  public get getIdReactivo() : number {
+    return this._IdReactivo
+  }
+  public set setIdReactivo(v : number) {
+    this._IdReactivo = v;
+  }
+  
+  public get getPregunta() : Pregunta {
+    return this._Pregunta
+  }
+  
+  public set setPregunta(v : Pregunta) {
+    this._Pregunta = v;
+  }
+
+  
+  public get getRespuestas() : Respuesta[] {
+    return this._Respuestas;
+  }
+  
+  public set setRespuestas(v : Respuesta[]) {
+    this._Respuestas = v;
+  }
+  
+  public get getRespuestaSeleccionada() : Respuesta | null {
+    return this._RespuestaSeleccionada;
+  }
+
+  
+  public set setRespuestaSeleccionada(v : Respuesta | null) {
+    this._RespuestaSeleccionada = v;
+  }
+  
+  
+  public get getRespuestaCorrecta() : Respuesta {
+    return this._RespuestaCorrecta;
+  }
+
+  public set setRespuestaCorrecta(v : Respuesta) {
+    this._RespuestaCorrecta = v;
+  }
 }
+
 class Pregunta  {
 
-private oracion: string[] = [];
-private _idPregunta : number;
-constructor(idpregunta: number){
-  this._idPregunta = idpregunta;
-}
+  private _oracion: string[];
+  private _idPregunta : number;
+  constructor(idpregunta: number, oracion: string [] ){
+    this._idPregunta = idpregunta;
+    this._oracion = oracion
+  }
+
+  
+  public get getOracion() : string[] {
+    return this._oracion;
+  }
+  
+  public set setOracion(v : string[]) {
+    this._oracion = v;
+  }
+
+  
+  public get getIdPregunta() : number {
+    return this._idPregunta;
+  }
+
+  
+  public set setIdPregunta(v : number) {
+    this._idPregunta = v;
+  }
+  
+  
+  
+  
+
 
 }
 
  class Respuesta {
 
-  private _respuestas: string[]
+  private _respuesta: string[]
   constructor( respuesta: string[] ){
-    this._respuestas = respuesta
+    this._respuesta = respuesta
 
   }
 }
@@ -154,4 +235,4 @@ export class oracion{
 
 
 
-  
+

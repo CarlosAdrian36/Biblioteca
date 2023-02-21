@@ -82,7 +82,7 @@ export class P5Component {
           bandera2 = x //aqui se suma uno
         }
       }
-      indexx = indexx +1;
+      // indexx = indexx +1;
 
       
       
@@ -93,10 +93,10 @@ export class P5Component {
       respuestas2 = respuestas.split(/{|}|~|\s+~|\s=|=/);
       respuestaslimpias = respuestas2.filter(Boolean);
       ob.setRespuestas = respuestaslimpias;
-      this.Las_respuestas(respuestaslimpias, reactivo)
+      const respuesta = this.Las_respuestas(respuestaslimpias, reactivo)
       // const arrrespuesta: Respuesta[] = []
       // arrrespuesta.push(respuesta);
-      // reactivo.setRespuestas = arrrespuesta
+      reactivo.setRespuestas = respuesta
       
       
       
@@ -138,26 +138,21 @@ export class P5Component {
     return valor
   }
   
-  Las_respuestas(r: string[], recc : Reactivo) {
+  Las_respuestas(r: string[], recc : Reactivo) : Respuesta[] {
     
     let respuesta = new Respuesta('',0)
 
-    let arrrespuesta: Respuesta[] = []
-    
+    const arrrespuesta: Respuesta[] = [];    
     
     for (let i = 0; i < r.length; i++) {
-      
       respuesta.setRespuesta = r[i];
       respuesta.setIndice = i
       
       console.log(respuesta)
-      
-      
-      arrrespuesta.push(respuesta);
-      
+      arrrespuesta.push(respuesta)
+
     }
-    recc.setRespuestas = arrrespuesta
-    
+    return arrrespuesta
     
   }
 

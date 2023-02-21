@@ -54,11 +54,15 @@ export class Examen  {
   private _IdExamen : number;
   public Nombre: string = '';
   public PuntosRpobatorios: number = 0;
-  public Reactivos: Reactivo[] = [];
+  public Reactivos!: Reactivo[];
 
-  constructor (IdExamen : number, Reactivos?: Reactivo[]){
-    this._IdExamen = IdExamen;
-    this.Reactivos = Reactivos ? Reactivos : [];
+  // constructor (IdExamen : number, Reactivos?: Reactivo[]){
+  //   this._IdExamen = IdExamen;
+  //   this.Reactivos = Reactivos ? Reactivos : [];
+  // }
+
+  constructor( idExamen: number ){
+    this._IdExamen  = idExamen;
   }
 
   
@@ -71,6 +75,16 @@ export class Examen  {
     this._IdExamen = v;
   }
 
+  public get getReactivos() : Reactivo[] {
+    return this.Reactivos
+  }
+  
+  
+  public set setReactivos(v : Reactivo[]) {
+    this.Reactivos = v;
+  }
+  
+
 }
 
 export class Reactivo   {
@@ -78,8 +92,9 @@ export class Reactivo   {
   private _IdReactivo: number;
   private _Pregunta : Pregunta;
   private _Respuestas : Respuesta[];
-  private _RespuestaSeleccionada: Respuesta | null = null;
   private _RespuestaCorrecta: Respuesta;
+  private _RespuestaSeleccionada: Respuesta | null = null;
+  this: any;
 
   constructor(data?: any|null) {// idReactivo : number, idExamen : number , respuestas : Respuesta[], pregunta : Pregunta, correcta: Respuesta){
     // super(idExamen)
@@ -139,11 +154,11 @@ export class Reactivo   {
   }
 }
 
-class Pregunta  {
+export class Pregunta  {
 
   private _oracion: string[];
-  private _idPregunta : number;
-  constructor(idpregunta: number, oracion: string [] ){
+  private _idPregunta: number;
+  constructor(idpregunta:number, oracion : string[] ){
     this._idPregunta = idpregunta;
     this._oracion = oracion
   }
@@ -158,7 +173,7 @@ class Pregunta  {
   }
 
   
-  public get getIdPregunta() : number {
+  public get getIdPregunta1() : number  {
     return this._idPregunta;
   }
 
@@ -174,13 +189,36 @@ class Pregunta  {
 
 }
 
- class Respuesta {
-
-  private _respuesta: string[]
-  constructor( respuesta: string[] ){
+export class Respuesta {
+  private _indice : number;
+  private _respuesta: string
+  constructor( respuesta: string, indice : number ){
     this._respuesta = respuesta
-
+    this._indice = indice
   }
+  
+  public get getRespuesta() : string {
+    return this._respuesta
+  }
+
+  
+  public set setRespuesta(v : string) {
+    this._respuesta = v;
+  }
+
+  
+  public get getIndice() : number {
+    return this._indice
+  }
+
+  
+  public set setIndice(v : number) {
+    this._indice = v;
+  }
+  
+  
+  
+  
 }
 
 

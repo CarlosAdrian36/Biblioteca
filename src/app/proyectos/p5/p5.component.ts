@@ -26,25 +26,24 @@ export class P5Component {
     }
     leer.readAsText(value);
   }
-
+  
   mostrar(txt: any) {
     this.contenido = txt;
   }
-
+  
   separar(txt: any) {
     const mensaje: string = txt;
     const lineas = mensaje.split(/.\r\n/gi);
     this.construir(lineas)
   }
-
-  //Examen: Examen
-  //Examen.Reactivos.push()
+  
   Oraciones : oracion[]= [];
-  Examen!: Examen ;
+  
+  Examen !: Examen ;
   
   construir(oracionCompleta: string[]){
-
-
+    
+    
     let bandera = 0;
     let bandera2 = 0;
     let indexx : number = 0
@@ -53,50 +52,55 @@ export class P5Component {
     let respuestaslimpias : string[];
     let correctas : string[];
     let correctasLimpias : string[];
+    const examen = new Examen();
+    let arrdeactivos : Reactivo[] = [];
     for (let i = 0; i < oracionCompleta.length; i++) {
       const reactivo = new Reactivo ([]); //Instanciando la clase Reactivo por cada pregunta 
-
+      
       const lineaindividual = oracionCompleta[i];
       let arrOraciones = lineaindividual.split(/{.+}/);
-      // console.log(arrOraciones )
 
       const pregunta = new Pregunta( 0,[]); // Instanciando la clase Pregunta
-
+      
       pregunta.setIdPregunta = i;
       pregunta.setOracion = arrOraciones;
-      console.log( pregunta)
       reactivo.setPregunta = pregunta; //Metemos la clase Pregunta al parametro reactivo.setPregunta
+      
 
-
-
+      
       const ob = new oracion ([],[],[],'','');
       ob.setOracion = arrOraciones;
       this.Oraciones.push(ob);
-
+      
       for (let x = 0; x < lineaindividual.length; x++) {
         const element = lineaindividual[x];
         if(element === '{'){
           bandera = x 
         }
         if(element === '}'){
-          bandera2 = x //aqui se suma uno
+          bandera2 = x 
         }
       }
-      // indexx = indexx +1;
-
+      reactivo.setIdReactivo = i
       
-      
-      
-      
-      respuestas = lineaindividual.substring(bandera,bandera2);
-      // console.log(respuestas)
+      respuestas = lineaindividual.substring(bandera+1,bandera2);
       respuestas2 = respuestas.split(/{|}|~|\s+~|\s=|=/);
       respuestaslimpias = respuestas2.filter(Boolean);
+      
       ob.setRespuestas = respuestaslimpias;
-      const respuesta = this.Las_respuestas(respuestaslimpias, reactivo)
-      // const arrrespuesta: Respuesta[] = []
-      // arrrespuesta.push(respuesta);
-      reactivo.setRespuestas = respuesta
+      
+      let arrrespuesta: Respuesta[] = [];  
+      
+      for (let j = 0; j < respuestaslimpias.length; j++) {
+        let lasRespuestas = new Respuesta('',0)
+        const element = respuestaslimpias[j];
+        lasRespuestas.setRespuesta = element;
+        lasRespuestas.setIndice = j
+        
+        arrrespuesta.push(lasRespuestas)
+        
+      }
+      reactivo.setRespuestas =arrrespuesta
       
       
       
@@ -104,63 +108,51 @@ export class P5Component {
       correctasLimpias = correctas.filter(Boolean);
       ob.setCorrecta = correctasLimpias;
       
-      const correcta = this.laCorrecta(respuestas)
-      console.log(correcta)
       const respuestaCorrecta = new Respuesta('',0);
-
-      respuestaCorrecta.setIndice = correcta;
-      reactivo.setRespuestaCorrecta = respuestaCorrecta
-
-
-
-      console.log(reactivo)
       
+      let arr = respuestas.split(/~\w+| ~\w+\S/)
+      let am = arr.filter(Boolean).toString();
+      let strvalue = am.split(/=/).filter(Boolean).toString();
       
+      respuestaCorrecta.setRespuesta = strvalue
+     
+      let valor!:number;
+      const caracter = '='
       
-    }
-    
-  }
-  laCorrecta(r : string): number {
-
-   let arr = r.split(' ',4)
-    // console.log(arr)
-    let valor!:number;
-    const caracter = '='
-
-    for (let j = 0; j < arr.length; j++) {
-      
-      const element = arr[j];
-
-      if(element.includes(caracter)){
+      let con = respuestas.split(/~| \s{2}/)
+      for (let j = 0; j < con.length; j++) {
+        
+        const element = arr[j];
+        
+        
+        if(element.includes(caracter)){
           valor = j
+          
+          respuestaCorrecta.setIndice = valor
+          
+        }
+        
       }
+      
+      reactivo.setRespuestaCorrecta = respuestaCorrecta
+      // console.log(reactivo)
+      arrdeactivos.push(reactivo)
+      // console.log(arrdeactivos)
+
     }
-    return valor
+    examen.Nombre = 'Este es el primer nomber';
+    examen.setIdExamen = 1;
+    examen.PuntosRpobatorios = 70;
+    examen.setReactivos = arrdeactivos
+    console.log(examen)
+
   }
   
-  Las_respuestas(r: string[], recc : Reactivo) : Respuesta[] {
-    
-    let respuesta = new Respuesta('',0)
-
-    const arrrespuesta: Respuesta[] = [];    
-    
-    for (let i = 0; i < r.length; i++) {
-      respuesta.setRespuesta = r[i];
-      respuesta.setIndice = i
-      
-      console.log(respuesta)
-      arrrespuesta.push(respuesta)
-
-    }
-    return arrrespuesta
-    
-  }
-
   seleccionado(oracion: oracion, res: string, event: any){
     oracion.seleccionada = event.selected ? res : null
   }
   constructor(private bottomSheet : MatBottomSheet){}
-
+  
   open(){
     this.bottomSheet.open(ButtonsheetComponent).afterDismissed().subscribe(
     result => {

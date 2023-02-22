@@ -51,22 +51,22 @@ Examen<Examen> {
 
 
 export class Examen  {
-  private _IdExamen : number;
+  private _IdExamen ?: number;
   public Nombre: string = '';
   public PuntosRpobatorios: number = 0;
-  public Reactivos!: Reactivo[];
+  public Reactivos: Reactivo[]=[];
 
   // constructor (IdExamen : number, Reactivos?: Reactivo[]){
   //   this._IdExamen = IdExamen;
   //   this.Reactivos = Reactivos ? Reactivos : [];
   // }
 
-  constructor( idExamen: number ){
+  constructor( idExamen?: number ){
     this._IdExamen  = idExamen;
   }
 
   
-  public get getIdExamen() : number {
+  public get getIdExamen() : number| undefined {
     return this._IdExamen;
   }
 

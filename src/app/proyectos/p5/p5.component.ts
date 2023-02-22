@@ -39,7 +39,8 @@ export class P5Component {
   
   Oraciones : oracion[]= [];
   
-  Examen !: Examen ;
+  Examen !: Examen[] ;
+  examen = new Examen();
   
   construir(oracionCompleta: string[]){
     
@@ -52,7 +53,6 @@ export class P5Component {
     let respuestaslimpias : string[];
     let correctas : string[];
     let correctasLimpias : string[];
-    const examen = new Examen();
     let arrdeactivos : Reactivo[] = [];
     for (let i = 0; i < oracionCompleta.length; i++) {
       const reactivo = new Reactivo ([]); //Instanciando la clase Reactivo por cada pregunta 
@@ -140,11 +140,11 @@ export class P5Component {
       // console.log(arrdeactivos)
 
     }
-    examen.Nombre = 'Este es el primer nomber';
-    examen.setIdExamen = 1;
-    examen.PuntosRpobatorios = 70;
-    examen.setReactivos = arrdeactivos
-    console.log(examen)
+    this.examen.Nombre = 'Este es el primer nomber';
+    this.examen.setIdExamen = 1;
+    this.examen.PuntosRpobatorios = 70;
+    this.examen.setReactivos = arrdeactivos
+    console.log(this.examen)
 
   }
   

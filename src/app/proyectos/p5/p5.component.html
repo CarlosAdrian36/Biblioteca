@@ -87,19 +87,21 @@
     </div>
   </div> -->
   <div>
-    <mat-card
-    *ngFor="let reactivo of examen.Reactivos"
-    >
+    <mat-card *ngFor="let reactivo of examen.Reactivos">
       <mat-card-header>
         <mat-card-title-group>
-          <mat-card-title
-          
-          >
-
+          <mat-card-title>
+            {{ reactivo.getPregunta.getOracion }}
           </mat-card-title>
         </mat-card-title-group>
 
       </mat-card-header>
+
+      <mat-card-content>
+        <div *ngFor="let respuesta of reactivo.getRespuestas">
+          <div>{{ respuesta.getRespuesta }}</div>
+        </div>
+      </mat-card-content>
     </mat-card>
   </div>
 

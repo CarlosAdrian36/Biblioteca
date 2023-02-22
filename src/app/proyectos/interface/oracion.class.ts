@@ -65,12 +65,12 @@ export class Examen  {
     this._IdExamen  = idExamen;
   }
 
-  
+
   public get getIdExamen() : number| undefined {
     return this._IdExamen;
   }
 
-  
+
   public set setIdExamen(v : number) {
     this._IdExamen = v;
   }
@@ -78,12 +78,12 @@ export class Examen  {
   public get getReactivos() : Reactivo[] {
     return this.Reactivos
   }
-  
-  
+
+
   public set setReactivos(v : Reactivo[]) {
     this.Reactivos = v;
   }
-  
+
 
 }
 
@@ -110,41 +110,41 @@ export class Reactivo   {
   get isCorrecta(): boolean {
     return true;
   }
-  
+
   public get getIdReactivo() : number {
     return this._IdReactivo
   }
   public set setIdReactivo(v : number) {
     this._IdReactivo = v;
   }
-  
+
   public get getPregunta() : Pregunta {
     return this._Pregunta
   }
-  
+
   public set setPregunta(v : Pregunta) {
     this._Pregunta = v;
   }
 
-  
+
   public get getRespuestas() : Respuesta[] {
     return this._Respuestas;
   }
-  
+
   public set setRespuestas(v : Respuesta[]) {
     this._Respuestas = v;
   }
-  
+
   public get getRespuestaSeleccionada() : Respuesta | null {
     return this._RespuestaSeleccionada;
   }
 
-  
+
   public set setRespuestaSeleccionada(v : Respuesta | null) {
     this._RespuestaSeleccionada = v;
   }
-  
-  
+
+
   public get getRespuestaCorrecta() : Respuesta {
     return this._RespuestaCorrecta;
   }
@@ -163,28 +163,28 @@ export class Pregunta  {
     this._oracion = oracion
   }
 
-  
+
   public get getOracion() : string[] {
     return this._oracion;
   }
-  
+
   public set setOracion(v : string[]) {
     this._oracion = v;
   }
 
-  
+
   public get getIdPregunta1() : number  {
     return this._idPregunta;
   }
 
-  
+
   public set setIdPregunta(v : number) {
     this._idPregunta = v;
   }
-  
-  
-  
-  
+
+
+
+
 
 
 }
@@ -196,29 +196,29 @@ export class Respuesta {
     this._respuesta = respuesta
     this._indice = indice
   }
-  
+
   public get getRespuesta() : string {
     return this._respuesta
   }
 
-  
+
   public set setRespuesta(v : string) {
     this._respuesta = v;
   }
 
-  
+
   public get getIndice() : number {
     return this._indice
   }
 
-  
+
   public set setIndice(v : number) {
     this._indice = v;
   }
-  
-  
-  
-  
+
+
+
+
 }
 
 

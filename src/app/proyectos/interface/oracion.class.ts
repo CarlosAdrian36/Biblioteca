@@ -108,7 +108,8 @@ export class Reactivo   {
     return this._RespuestaCorrecta ? true : false;
   }
   get isCorrecta(): boolean {
-    return true;
+ 
+     return this.getRespuestaCorrecta === this.getRespuestaSeleccionada ?  true : false
   }
 
   public get getIdReactivo() : number {

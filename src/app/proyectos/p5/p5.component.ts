@@ -152,6 +152,10 @@ export class P5Component {
   seleccionado(oracion: oracion, res: string, event: any){
     oracion.seleccionada = event.selected ? res : null
   }
+  seleccionada(Respuesta: Reactivo, res: Respuesta, event: any){
+     Respuesta.setRespuestaSeleccionada = event.selected ? res : null
+     console.log(Respuesta)
+  }
   constructor(private bottomSheet : MatBottomSheet){}
 
   open(){
@@ -164,7 +168,7 @@ export class P5Component {
     });
 
   }
-  deshabilitar : boolean = false
+  // deshabilitar : boolean = false
   condicion : number = 0
   evaluar(oraciones: oracion[]){
     this.deshabilitar = true
@@ -181,6 +185,16 @@ export class P5Component {
     // console.log(oraciones)
 
   }
+  deshabilitar : boolean = false
+
+  evaluacion(Examen : Examen){
+    this.deshabilitar = true
+
+
+  }
+
+
+
 
   opcion: boolean | null = null
   resetear(){

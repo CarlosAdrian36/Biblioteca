@@ -25,7 +25,7 @@
     </mat-card>
   </div>
 
-<!--   <div >
+  <!-- <div >
     <mat-card
     class="card-content-exam"
     *ngFor="let item of Oraciones; let i = index"
@@ -85,24 +85,63 @@
         Resetear
       </button>
     </div>
-  </div> -->
+  </div>
+ -->
+
+  <!-- Aqui se implementa las clases -->
   <div>
-    <mat-card *ngFor="let reactivo of examen.Reactivos">
+    <mat-card    class="card-content-exam"
+    *ngFor="let reactivo of examen.Reactivos">
       <mat-card-header>
         <mat-card-title-group>
-          <mat-card-title>
-            {{ reactivo.getPregunta.getOracion }}
+          <mat-card-title *ngFor="let item of reactivo.getPregunta.getOracion let i=index">
+              <ng-container *ngIf="i<1; else elseTemplate">
+                {{item}}
+                <span *ngIf="!reactivo.getRespuestaSeleccionada">__________________________</span>
+                <span *ngIf="reactivo.getRespuestaSeleccionada">
+                  <u>
+                    <strong style="background-color: rgb(203, 234, 67);" >
+
+                      {{reactivo.getRespuestaSeleccionada}}
+                    </strong>
+                  </u>
+                </span>
+
+
+              </ng-container>
+              <ng-template #elseTemplate>
+                {{item}}
+              </ng-template>
+              
           </mat-card-title>
+          <ng-container *ngIf="reactivo.isCorrecta; else elseTemplate">
+            <img mat-card-sm-image src="../../../assets/evaluacion/done.png">
+          </ng-container>
+          <ng-template #elseTemplate>
+            <img mat-card-sm-image src="../../../assets/evaluacion/error.png">
+          </ng-template>
+          
         </mat-card-title-group>
-
       </mat-card-header>
-
-      <mat-card-content>
-        <div *ngFor="let respuesta of reactivo.getRespuestas">
-          <div>{{ respuesta.getRespuesta }}</div>
-        </div>
-      </mat-card-content>
+      <mat-card-actions>
+        <mat-chip-listbox >
+          <mat-chip-option 
+          [selected]="respuesta === reactivo.getRespuestaSeleccionada"
+          (selectionChange)="seleccionada(reactivo,respuesta,$event)"
+          *ngFor="let respuesta of reactivo.getRespuestas">
+            {{ respuesta.getRespuesta }}
+          </mat-chip-option>
+        </mat-chip-listbox>
+      </mat-card-actions>
     </mat-card>
+
+    <div  *ngIf="contenido !== '' ">
+      
+      <button class="bt1" mat-raised-button color="warn"  type="submit" (click)="evaluacion(examen)">
+        Revisar
+      </button>
+    </div>
+
   </div>
 
 </div>

@@ -7,6 +7,7 @@ import { P2Component } from './p2/p2.component';
 import { P3Component } from './p3/p3.component';
 import { P4Component } from './p4/p4.component';
 import { P5Component } from './p5/p5.component';
+import { P6Component } from './p6/p6.component';
 
 const routes : Routes =[
 
@@ -35,9 +36,14 @@ const routes : Routes =[
         component: P5Component
       },
       {
+        path: 'Proyecto6',
+        component: P6Component
+      },
+      {
         path: '**',
         redirectTo: 'Proyecto2'
-      }
+      },
+      
     ]
     
   }

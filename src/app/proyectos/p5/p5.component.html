@@ -91,7 +91,10 @@
   <!-- Aqui se implementa las clases -->
   <div>
     <mat-card    class="card-content-exam"
-    *ngFor="let reactivo of examen.Reactivos">
+    *ngFor="let reactivo of examen.Reactivos"
+
+    [ngStyle]="{'background-color' : PermitirEvaluacion === false ? ('white'):(PermitirEvaluacion === true) ? (reactivo.isCorrecta === true)? ('#83E48A') : ('#E6AEAE') :('white') }"
+    >
       <mat-card-header>
         <mat-card-title-group>
           <mat-card-title *ngFor="let item of reactivo.getPregunta.getOracion let i=index">
@@ -101,7 +104,8 @@
                 <span *ngIf="reactivo.getRespuestaSeleccionada">
                   <u>
                     <strong style="background-color: rgb(203, 234, 67);" >
-                      {{reactivo.getRespuestaSeleccionada.getRespuesta }}
+
+                      {{reactivo.getRespuestaSeleccionada.getRespuesta}}
                     </strong>
                   </u>
                 </span>

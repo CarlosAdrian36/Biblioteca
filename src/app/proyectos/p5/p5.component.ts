@@ -185,10 +185,10 @@ export class P5Component {
 
   // }
   deshabilitar : boolean = false
-  PermitirEvaluacion = false
+
   evaluacion(Examen : Examen){
     this.deshabilitar = true
-    this.PermitirEvaluacion = true
+
   }
 
 
@@ -208,14 +208,10 @@ export class P5Component {
 
   reseteo(){
     this.deshabilitar = false;
-    this.PermitirEvaluacion = false
-    this.examen.getReactivos.forEach(element =>{
-      console.log(element)
-      element.setRespuestaSeleccionada = null
+    this.Examen.forEach(element => {
+      element.setReactivos.forEach(element2 => {
+        element2.setRespuestaSeleccionada = null
+      })
     })
-
-
-
   }
 }
-

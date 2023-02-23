@@ -110,7 +110,7 @@ export class Reactivo   {
   }
   get isCorrecta(): boolean {
  
-     return this.getRespuestaCorrecta === this.getRespuestaSeleccionada ?  true : false
+     return this.getRespuestaCorrecta.getIndice === this.getRespuestaSeleccionada?.getIndice ?  true : false
   }
 
   public get getIdReactivo() : number {

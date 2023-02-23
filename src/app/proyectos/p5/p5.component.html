@@ -92,7 +92,7 @@
   <div>
     <mat-card    class="card-content-exam"
     *ngFor="let reactivo of examen.Reactivos"
-    
+
     [ngStyle]="{'background-color' : PermitirEvaluacion === false ? ('white'):(PermitirEvaluacion === true) ? (reactivo.isCorrecta === true)? ('#83E48A') : ('#E6AEAE') :('white') }"
     >
       <mat-card-header>

@@ -10,6 +10,7 @@ import { P3Component } from './p3/p3.component';
 import { P4Component } from './p4/p4.component';
 import { P5Component } from './p5/p5.component';
 import { ButtonsheetComponent } from './components/buttonsheet/buttonsheet.component';
+import { P6Component } from './p6/p6.component';
 
 
 
@@ -21,7 +22,8 @@ import { ButtonsheetComponent } from './components/buttonsheet/buttonsheet.compo
     P3Component,
     P4Component,
     P5Component,
-    ButtonsheetComponent
+    ButtonsheetComponent,
+    P6Component
   ],
   imports: [
     CommonModule,

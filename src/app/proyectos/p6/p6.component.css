@@ -1,0 +1,47 @@
+.card {
+    max-width: 400px;
+    margin-top: 20px;
+    margin: 30px;
+    width: 100%;
+    
+  }
+.card-titulo{
+    max-width: 400px;
+    margin-top: 20px;
+    margin: 30px;
+    width: 100%;
+    position: relative;
+    
+  }
+
+#contenedor {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#contenedor > div {
+  width: 35%;
+  
+}
+.bt1{
+  margin-top: 15px;
+  margin-left: 250px;
+}
+.bt2{
+
+  margin-top: 15px;
+  margin-left: 50px;
+}
+
+.card-content-exam{
+  margin-right: 0px ;
+  margin-top: 40px;  
+  
+}
+
+.button{
+  margin-top: 10px;
+  padding: 5px;
+
+}

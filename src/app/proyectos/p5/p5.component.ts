@@ -149,12 +149,12 @@ export class P5Component {
 
   }
 
-  seleccionado(oracion: oracion, res: string, event: any){
-    oracion.seleccionada = event.selected ? res : null
-  }
+  // seleccionado(oracion: oracion, res: string, event: any){
+  //   oracion.seleccionada = event.selected ? res : null
+  // }
   seleccionada(Respuesta: Reactivo, res: Respuesta, event: any){
      Respuesta.setRespuestaSeleccionada = event.selected ? res : null
-     console.log(Respuesta)
+    //  console.log(Respuesta)
   }
   constructor(private bottomSheet : MatBottomSheet){}
 
@@ -169,46 +169,49 @@ export class P5Component {
 
   }
   // deshabilitar : boolean = false
-  condicion : number = 0
-  evaluar(oraciones: oracion[]){
-    this.deshabilitar = true
-    oraciones.forEach(element => {
+  // evaluar(oraciones: oracion[]){
+  //   this.deshabilitar = true
+  //   oraciones.forEach(element => {
 
-      let r1 : string | null;
-      let r2 : string;
-      r1 = element.seleccionada;
-      r2 = element.getCorrecta.toString();
+  //     let r1 : string | null;
+  //     let r2 : string;
+  //     r1 = element.seleccionada;
+  //     r2 = element.getCorrecta.toString();
 
 
-      r1 === r2  ? element.evaluacion = 'true' : element.evaluacion = 'false'
-    });
-    // console.log(oraciones)
+  //     r1 === r2  ? element.evaluacion = 'true' : element.evaluacion = 'false'
+  //   });
+  //   console.log(oraciones)
 
-  }
+  // }
   deshabilitar : boolean = false
 
   evaluacion(Examen : Examen){
     this.deshabilitar = true
 
-
   }
 
 
 
 
-  opcion: boolean | null = null
-  resetear(){
+  // opcion: boolean | null = null
+  // resetear(){
     // this.opcion = true
-    this.opcion = null
+    // this.opcion = null
     // console.log(this.opcion);
+  //   this.deshabilitar = false;
+  //   this.Oraciones.forEach(element => {
+  //     element.seleccionada = null;
+  //     element.evaluacion = null;
+  //   });
+  // }
+
+  reseteo(){
     this.deshabilitar = false;
-    this.Oraciones.forEach(element => {
-      element.seleccionada = null;
-      element.evaluacion = null;
-    });
-    // console.log(this.opcion);
-
-
+    this.Examen.forEach(element => {
+      element.setReactivos.forEach(element2 => {
+        element2.setRespuestaSeleccionada = null
+      })
+    })
   }
-
 }

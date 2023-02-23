@@ -102,7 +102,7 @@
                   <u>
                     <strong style="background-color: rgb(203, 234, 67);" >
 
-                      {{reactivo.getRespuestaSeleccionada}}
+                      {{reactivo.getRespuestaSeleccionada | json }}
                     </strong>
                   </u>
                 </span>
@@ -126,6 +126,7 @@
       <mat-card-actions>
         <mat-chip-listbox >
           <mat-chip-option 
+          [disabled]="deshabilitar"
           [selected]="respuesta === reactivo.getRespuestaSeleccionada"
           (selectionChange)="seleccionada(reactivo,respuesta,$event)"
           *ngFor="let respuesta of reactivo.getRespuestas">
@@ -139,6 +140,10 @@
       
       <button class="bt1" mat-raised-button color="warn"  type="submit" (click)="evaluacion(examen)">
         Revisar
+      </button>
+
+      <button class="bt2" mat-raised-button color="accent" (click)="reseteo()">
+        Resetear
       </button>
     </div>
 

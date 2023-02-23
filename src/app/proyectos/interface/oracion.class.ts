@@ -102,6 +102,7 @@ export class Reactivo   {
     this._Respuestas = data?.respuestas;
     this._Pregunta = data?.pregunta;
     this._RespuestaCorrecta = data?.correcta;
+    this._RespuestaSeleccionada = data?.seleccionada
   }
 
   get isContestada(): boolean {

@@ -111,10 +111,11 @@
               <ng-template #elseTemplate>
                 {{item}}
               </ng-template>
-
+              
           </mat-card-title>
 
-          <ng-container *ngIf="false">
+          <ng-container *ngIf="PermitirEvaluacion">
+
             <ng-container *ngIf="reactivo.isCorrecta; else elseTemplate">
               <img mat-card-sm-image src="../../../assets/evaluacion/done.png">
             </ng-container>
@@ -122,12 +123,13 @@
               <img mat-card-sm-image src="../../../assets/evaluacion/error.png">
             </ng-template>
           </ng-container>
-
+          
+          
         </mat-card-title-group>
       </mat-card-header>
       <mat-card-actions>
         <mat-chip-listbox >
-          <mat-chip-option
+          <mat-chip-option 
           [disabled]="deshabilitar"
           [selected]="respuesta === reactivo.getRespuestaSeleccionada"
           (selectionChange)="seleccionada(reactivo,respuesta,$event)"
@@ -139,7 +141,7 @@
     </mat-card>
 
     <div  *ngIf="contenido !== '' ">
-
+      
       <button class="bt1" mat-raised-button color="warn"  type="submit" (click)="evaluacion(examen)">
         Revisar
       </button>

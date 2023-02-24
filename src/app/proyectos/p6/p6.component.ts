@@ -45,17 +45,37 @@ export class P6Component {
 
   separar(txt: any) {
     const mensaje: string = txt;
-    // const lineas = mensaje.split(/.\r\n/gi);
-    // console.log(mensaje)
     this.construir(mensaje)
   }
 
+
+  contador = 0
+
   construir(mensaje : string){
-    const preguntas = mensaje.split(/\s+{.+}\s+/);
-    console.log(preguntas);
-    const respuestas = mensaje.split(/¿\w+.+|.+¿\w+.+/);
-    console.log(respuestas)
+    const Reactivo = mensaje.split(/\r\n/).filter(Boolean);
+    console.log(Reactivo);
+
+    for (let i = 0; i < Reactivo.length; i++) {
+      const element = Reactivo[i];
+      console.log(element);
+
+      if(element.includes('{'||' }') ){
+
+        this.contador = this.contador++
+      }else{
+
+      }
+
+
+      
+    }
+
     
+
+    const preguntas = mensaje.split(/\s+{.+}\s+/).filter(Boolean);
+    // console.log(preguntas);
+    const respuestas = mensaje.split(/¿\w+.+|.+¿\w+.+/);
+    // console.log(respuestas)
   }
 
 

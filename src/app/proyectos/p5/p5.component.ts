@@ -43,7 +43,7 @@ export class P5Component {
   examen = new Examen();
 
   construir(oracionCompleta: string[]){
-
+    console.log(oracionCompleta)
 
     let bandera = 0;
     let bandera2 = 0;

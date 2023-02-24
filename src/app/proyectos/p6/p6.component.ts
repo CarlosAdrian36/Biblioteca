@@ -60,7 +60,7 @@ export class P6Component {
       console.log(element);
 
       if(element.includes('{'||' }') ){
-
+        // aqui vemos las sentencias
         this.contador = this.contador++
       }else{
 

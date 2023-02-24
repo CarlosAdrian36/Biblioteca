@@ -46,14 +46,16 @@ export class P6Component {
   separar(txt: any) {
     const mensaje: string = txt;
     // const lineas = mensaje.split(/.\r\n/gi);
-    console.log(mensaje)
+    // console.log(mensaje)
     this.construir(mensaje)
   }
 
   construir(mensaje : string){
     const preguntas = mensaje.split(/\s+{.+}\s+/);
     console.log(preguntas);
-    // const respuestas = s
+    const respuestas = mensaje.split(/¿\w+.+|.+¿\w+.+/);
+    console.log(respuestas)
+    
   }
 
 

@@ -56,7 +56,7 @@ export class P5Component {
     let arrdeactivos : Reactivo[] = [];
     for (let i = 0; i < oracionCompleta.length; i++) {
       const reactivo = new Reactivo ([]); //Instanciando la clase Reactivo por cada pregunta
-
+      console.log(oracionCompleta);
       const lineaindividual = oracionCompleta[i];
       let arrOraciones = lineaindividual.split(/{.+}/);
 

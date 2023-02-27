@@ -158,20 +158,20 @@ export class Reactivo   {
 
 export class Pregunta  {
 
-  private _oracion: string[];
+  private _pregunta: string[];
   private _idPregunta: number;
   constructor(idpregunta:number, oracion : string[] ){
     this._idPregunta = idpregunta;
-    this._oracion = oracion
+    this._pregunta = oracion
   }
 
 
   public get getOracion() : string[] {
-    return this._oracion;
+    return this._pregunta;
   }
 
   public set setOracion(v : string[]) {
-    this._oracion = v;
+    this._pregunta = v;
   }
 
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { ButtonsheetComponent } from '../components/buttonsheet/buttonsheet.component';
+import { Examen, Reactivo, Pregunta, Respuesta } from '../interface/Examen.PR.class';
 
 @Component({
   selector: 'app-p6',
@@ -43,39 +44,77 @@ export class P6Component {
     this.contenido = txt;
   }
 
-  separar(txt: any) {
-    const mensaje: string = txt;
+  separar(txt: any ) {
+    
+    const mensaje= txt.split(/\r\n/).filter(Boolean);
+    // console.log(mensaje)
     this.construir(mensaje)
+
   }
 
+examen = new Examen();
 
-  contador = 0
-
-  construir(mensaje : string){
-    const Reactivo = mensaje.split(/\r\n/).filter(Boolean);
-    console.log(Reactivo);
-
-    for (let i = 0; i < Reactivo.length; i++) {
-      const element = Reactivo[i];
-      console.log(element);
-
-      if(element.includes('{'||' }') ){
-        // aqui vemos las sentencias
-        this.contador = this.contador++
+construir(mensaje : string[]){
+  // const linea = mensaje.split(/\r\n/).filter(Boolean);
+  let contador: number = 0
+  
+  for (let i = 0; i < mensaje.length; i++) {
+    
+    const element = mensaje[i];
+    
+    let reactivo  = new Reactivo ();
+    
+    if(i % 2 === 0 ){
+        const pregunta = new Pregunta (0,'');
+        pregunta.setIdPregunta = contador;
+        pregunta.setOracion = element
+        contador++
       }else{
-
+        // const respuesat = new Respuesta
       }
-
-
-      
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     
 
-    const preguntas = mensaje.split(/\s+{.+}\s+/).filter(Boolean);
-    // console.log(preguntas);
-    const respuestas = mensaje.split(/¿\w+.+|.+¿\w+.+/);
-    // console.log(respuestas)
+  //   const preguntas = mensaje.split(/\s+{.+}\s+/).filter(Boolean);
+  //   console.log(preguntas);
+  //   const respuestas = mensaje.split(/¿\w+.+|.+¿\w+.+/);
+  //   // console.log(respuestas)
+    
   }
 
 

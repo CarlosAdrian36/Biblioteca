@@ -51,9 +51,10 @@ export class P6Component {
   }
 
 
+  examen = new Examen();
 
   ConstrucciondelObjeto(react: string[]){
-    
+    let arrReactivo : Reactivo[] = [];
     for (let i = 0; i < react.length; i++) {
       const reactivo = new Reactivo();
       const element = react[i];
@@ -117,10 +118,16 @@ export class P6Component {
       }
       reactivo.setRespuestaCorrecta = respuestaCorrecta;
       reactivo.setIdReactivo = i;
-      console.log(reactivo)
-      
-      
+      // console.log(reactivo)
+
+      arrReactivo.push(reactivo)
     }
+    this.examen.Nombre ='Este es un examen de pregunta y respuesta con mi formato';
+    this.examen.PuntosRpobatorios = 70;
+    this.examen.setIdExamen = 1;
+    this.examen.setReactivos = arrReactivo;
+    console.log(this.examen);
+
 
   }
   

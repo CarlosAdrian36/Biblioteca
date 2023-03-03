@@ -25,3 +25,101 @@
       </mat-card>
     </div>
 
+
+
+    
+
+    <div>
+      <mat-card    class="card-content-exam"
+      *ngFor="let reactivo of examen.Reactivos"
+      
+      [ngStyle]="{'background-color' : PermitirEvaluacion === false ? ('white'):(PermitirEvaluacion === true) ? (reactivo.isCorrecta === true)? ('#83E48A') : ('#E6AEAE') :('white') }"
+      >
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title *ngFor="let item of reactivo.getPregunta.getPregunta let i=index">
+                <ng-container *ngIf="i<1; else elseTemplate">
+                  {{item}}
+                  <span *ngIf="!reactivo.getRespuestaSeleccionada">__________________________</span>
+                  <span *ngIf="reactivo.getRespuestaSeleccionada">
+                    <u>
+                      <strong style="background-color: rgb(203, 234, 67);" >
+  
+                        {{reactivo.getRespuestaSeleccionada.getRespuesta}}
+                      </strong>
+                    </u>
+                  </span>
+  
+  
+                </ng-container>
+                <ng-template #elseTemplate>
+                  {{item}}
+                </ng-template>
+  
+            </mat-card-title>
+  
+            <ng-container *ngIf="false">
+              <ng-container *ngIf="reactivo.isCorrecta; else elseTemplate">
+                <img mat-card-sm-image src="../../../assets/evaluacion/done.png">
+              </ng-container>
+              <ng-template #elseTemplate>
+                <img mat-card-sm-image src="../../../assets/evaluacion/error.png">
+              </ng-template>
+            </ng-container>
+  
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-actions>
+          <mat-chip-listbox >
+            <mat-chip-option
+            [disabled]="deshabilitar"
+            [selected]="respuesta === reactivo.getRespuestaSeleccionada"
+            (selectionChange)="seleccionada(reactivo,respuesta,$event)"
+            *ngFor="let respuesta of reactivo.getRespuestas">
+              {{ respuesta.getRespuesta }}
+            </mat-chip-option>
+          </mat-chip-listbox>
+        </mat-card-actions>
+      </mat-card>
+      <div  *ngIf="contenido !== '' ">
+        <button class="bt1" mat-raised-button color="warn"  type="submit" (click)="evaluacion(examen)">
+          Revisar
+        </button>
+        <button class="bt2" mat-raised-button color="accent" (click)="reseteo()">
+          Resetear
+        </button>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+

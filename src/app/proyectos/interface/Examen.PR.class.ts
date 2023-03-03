@@ -158,19 +158,19 @@ export class Examen  {
   
   export class Pregunta  {
   
-    private _pregunta: string;
+    private _pregunta: string[];
     private _idPregunta: number;
-    constructor(idpregunta:number, oracion : string ){
+    constructor(idpregunta:number, oracion : string[] ){
       this._idPregunta = idpregunta;
       this._pregunta = oracion
     }
   
   
-    public get getPregunta() : string {
+    public get getPregunta() : string[] {
       return this._pregunta;
     }
   
-    public set setPregunta(v : string ) {
+    public set setPregunta(v : string[] ) {
       this._pregunta = v;
     }
   

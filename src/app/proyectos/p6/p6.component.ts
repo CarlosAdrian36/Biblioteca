@@ -35,8 +35,12 @@ export class P6Component {
       // this.Oraciones = []
       const contenido = leer.result ;
       this.separar(contenido);
+      this.mostrar(contenido)
     }
     leer.readAsText(value);
+  }
+  mostrar(txt: any) {
+    this.contenido = txt;
   }
   
   
@@ -60,8 +64,8 @@ export class P6Component {
       const element = react[i];
       const preguntalimpia = element.split(/\r\n|{.+/).filter(Boolean);
       // console.log(preguntalimpia)
-      const pregunta = new Pregunta(0,'');
-      pregunta.setPregunta = preguntalimpia.toString()
+      const pregunta = new Pregunta(0,[]);
+      pregunta.setPregunta = preguntalimpia
       pregunta.setIdPregunta = i;
 
       reactivo.setPreguntaReactivo = pregunta
@@ -130,6 +134,35 @@ export class P6Component {
 
 
   }
+
+  seleccionada(Respuesta: Reactivo, res: Respuesta, event: any){
+    Respuesta.setRespuestaSeleccionada = event.selected ? res : null
+   //  console.log(Respuesta)
+  }
+  
+
+ deshabilitar : boolean = false
+ PermitirEvaluacion = false
+ evaluacion(Examen : Examen){
+   this.deshabilitar = true
+   this.PermitirEvaluacion = true
+ }
+
+
+
+ reseteo(){
+   this.deshabilitar = false;
+   this.PermitirEvaluacion = false
+   this.examen.getReactivos.forEach(element =>{
+     console.log(element)
+     element.setRespuestaSeleccionada = null
+   })
+
+
+
+ }
+  
+  
   
 
 }

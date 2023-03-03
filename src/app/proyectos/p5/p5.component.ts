@@ -56,7 +56,7 @@ export class P5Component {
     let arrdeactivos : Reactivo[] = [];
     for (let i = 0; i < oracionCompleta.length; i++) {
       const reactivo = new Reactivo ([]); //Instanciando la clase Reactivo por cada pregunta
-      console.log(oracionCompleta);
+      // console.log(oracionCompleta);
       const lineaindividual = oracionCompleta[i];
       let arrOraciones = lineaindividual.split(/{.+}/);
 
@@ -65,8 +65,7 @@ export class P5Component {
       pregunta.setIdPregunta = i;
       pregunta.setOracion = arrOraciones;
       reactivo.setPregunta = pregunta; //Metemos la clase Pregunta al parametro reactivo.setPregunta
-
-
+      
 
       const ob = new oracion ([],[],[],'','');
       ob.setOracion = arrOraciones;
@@ -110,9 +109,8 @@ export class P5Component {
 
       const respuestaCorrecta = new Respuesta('',0);
 
-      let arr = respuestas.split(/~\w+| ~\w+\S/)
-      let am = arr.filter(Boolean).toString();
-      let strvalue = am.split(/=/).filter(Boolean).toString();
+      let arr = respuestas.split(/~\w+| ~\w+\S/).filter(Boolean).toString();
+      let strvalue = arr.split(/=/).filter(Boolean).toString();
 
       respuestaCorrecta.setRespuesta = strvalue
 
@@ -120,10 +118,11 @@ export class P5Component {
       const caracter = '='
 
       let con = respuestas.split(/~| \s{2}/)
-      console.log(arr);
+      // console.log(arr);
       for (let j = 0; j < con.length; j++) {
 
         const element = arr[j];
+        console.log(element)
 
 
         if(element.includes(caracter)){

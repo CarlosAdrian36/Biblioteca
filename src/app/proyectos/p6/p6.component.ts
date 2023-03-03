@@ -33,89 +33,95 @@ export class P6Component {
     const leer = new FileReader();
     leer.onload = () => {
       // this.Oraciones = []
-      const contenido = leer.result;
-      this.mostrar(contenido);
+      const contenido = leer.result ;
       this.separar(contenido);
     }
     leer.readAsText(value);
   }
-
-  mostrar(txt: any) {
-    this.contenido = txt;
-  }
-
-  separar(txt: any ) {
-    
-    const mensaje= txt.split(/\r\n/).filter(Boolean);
-    // console.log(mensaje)
-    this.construir(mensaje)
-
-  }
-
-examen = new Examen();
-
-construir(mensaje : string[]){
-  // const linea = mensaje.split(/\r\n/).filter(Boolean);
-  let contador: number = 0
   
-  for (let i = 0; i < mensaje.length; i++) {
+  
+
+  separar(txt: any | null ) {
+    const mensaje: string = txt
+    // console.log(mensaje)
+
+    const react = mensaje.split(/\r\n\r\n/g);
+    // console.log(react);
+    this.ConstrucciondelObjeto(react)
+  }
+
+
+
+  ConstrucciondelObjeto(react: string[]){
     
-    const element = mensaje[i];
-    
-    let reactivo  = new Reactivo ();
-    
-    if(i % 2 === 0 ){
-        const pregunta = new Pregunta (0,'');
-        pregunta.setIdPregunta = contador;
-        pregunta.setOracion = element
-        contador++
-      }else{
-        // const respuesat = new Respuesta
+    for (let i = 0; i < react.length; i++) {
+      const reactivo = new Reactivo();
+      const element = react[i];
+      const preguntalimpia = element.split(/\r\n|{.+/).filter(Boolean);
+      // console.log(preguntalimpia)
+      const pregunta = new Pregunta(0,'');
+      pregunta.setPregunta = preguntalimpia.toString()
+      pregunta.setIdPregunta = i;
+
+      reactivo.setPreguntaReactivo = pregunta
+
+
+      const respuestas = element.split(/¿\w+.+|.+¿\w+.+|\r\n|{|}|~|\s+~|\s=|=/).filter(Boolean);
+      // console.log(respuestas);
+      let arrRespuestas : Respuesta[]= [];
+      let bandera = 0;
+      let bandera2 = 0;
+
+      for (let x = 0; x < respuestas.length; x++) {
+        let respuesta = new Respuesta('',0);
+        const element = respuestas[x];
+        respuesta.setRespuesta = element;
+        respuesta.setIndice = x;
+        
+        arrRespuestas.push(respuesta);
       }
+      reactivo.setRespuestas = arrRespuestas;
+      // console.log(reactivo);
+      // console.log(element);
+      for (let j = 0; j < element.length; j++) {
+        const p = element[j];
+        if( p === '{' ){
+          bandera = j;
+        }
+        if(p === '}'){
+          bandera2 = j;
+        }
+      }
+
+      const respuestaCorrecta = new Respuesta('',0);
+      const sinpregunta = element.substring(bandera+1,bandera2);
+      // console.log(sinpregunta);
+
+      const RegEx = (/ ?~\w* +\w+ +\w+|~\w+ \w+|~\w+/gm);
+      const correcta = sinpregunta.split(RegEx)
+      const strCorrecta = sinpregunta.split(RegEx).toString();
+
+      let strv = strCorrecta.split(/=/).filter(Boolean).toString();
+      respuestaCorrecta.setRespuesta = strv
+      // console.log(strv)
+      // console.log(correcta)
+
+      for (let s = 0; s < correcta.length; s++) {
+        const element = correcta[s];
+        if(element.includes('=')){
+          const valor = s;
+
+          respuestaCorrecta.setIndice = s;
+        }
+        
+      }
+      reactivo.setRespuestaCorrecta = respuestaCorrecta;
+      reactivo.setIdReactivo = i;
+      console.log(reactivo)
+      
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-  //   const preguntas = mensaje.split(/\s+{.+}\s+/).filter(Boolean);
-  //   console.log(preguntas);
-  //   const respuestas = mensaje.split(/¿\w+.+|.+¿\w+.+/);
-  //   // console.log(respuestas)
-    
   }
-
+  
 
 }

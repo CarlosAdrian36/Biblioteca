@@ -124,7 +124,7 @@ export class Examen  {
       return this._Pregunta
     }
   
-    public set setPregunta(v : Pregunta) {
+    public set setPreguntaReactivo(v : Pregunta) {
       this._Pregunta = v;
     }
   
@@ -166,11 +166,11 @@ export class Examen  {
     }
   
   
-    public get getOracion() : string {
+    public get getPregunta() : string {
       return this._pregunta;
     }
   
-    public set setOracion(v : string) {
+    public set setPregunta(v : string ) {
       this._pregunta = v;
     }
   

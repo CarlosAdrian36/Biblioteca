@@ -68,6 +68,8 @@ export class P6Component {
       pregunta.setPregunta = preguntalimpia
       pregunta.setIdPregunta = i;
 
+
+      
       reactivo.setPreguntaReactivo = pregunta
 
 

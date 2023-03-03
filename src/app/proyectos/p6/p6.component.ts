@@ -70,6 +70,7 @@ export class P6Component {
 
 
       
+      
       reactivo.setPreguntaReactivo = pregunta
 
 

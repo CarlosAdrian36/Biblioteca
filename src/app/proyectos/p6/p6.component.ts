@@ -119,6 +119,7 @@ export class P6Component {
       reactivo.setIdReactivo = i;
       console.log(reactivo)
       
+      
     }
 
   }

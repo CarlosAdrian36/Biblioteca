@@ -98,7 +98,7 @@ export class P6Component {
       const sinpregunta = element.substring(bandera+1,bandera2);
       // console.log(sinpregunta);
 
-      const RegEx = (/ ?~\w* +\w+ +\w+|~\w+ \w+|~\w+/gm);
+      const RegEx = (/ ?~\w* +\w+ +\w+|~\w+ \w+|~\w+ ?/gm);
       const correcta = sinpregunta.split(RegEx)
       const strCorrecta = sinpregunta.split(RegEx).toString();
 
